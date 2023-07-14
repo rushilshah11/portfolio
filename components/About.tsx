@@ -6,32 +6,16 @@ const About = () => {
     { skill: "CSS" },
     { skill: "JavaScript" },
     { skill: "Python" },
+    { skill: "C++" },
     { skill: "React" },
     { skill: "Next.js" },
     { skill: "Tailwind CSS" },
     { skill: "Git" },
     { skill: "GitHub" },
     { skill: "Jupyter Notebooks" },
-    { skill: "HTML" },
-    { skill: "CSS" },
-    { skill: "JavaScript" },
-    { skill: "Python" },
-    { skill: "React" },
-    { skill: "Next.js" },
-    { skill: "Tailwind CSS" },
-    { skill: "Git" },
-    { skill: "GitHub" },
-    { skill: "Jupyter Notebooks" },
-    { skill: "HTML" },
-    { skill: "CSS" },
-    { skill: "JavaScript" },
-    { skill: "Python" },
-    { skill: "React" },
-    { skill: "Next.js" },
-    { skill: "Tailwind CSS" },
-    { skill: "Git" },
-    { skill: "GitHub" },
-    { skill: "Jupyter Notebooks" },
+    { skill: "VSCode" },
+    { skill: "Figma" },
+    { skill: "Firebase" },
   ];
   return (
     <section id="about">
@@ -62,19 +46,11 @@ const About = () => {
             <p>
               I have a wide range of hobbies and passions that keep me busy.
               From reading, playing sports, traveling, to cooking.
-              I am always seeking new experiences and love to keep myself
-              engaged and learning new things.
             </p>
             <br />
             <p>
-              I believe that you should{" "}
-              <span className="font-bold text-teal-500">
-                never stop growing
-              </span>{" "}
-              and that&#39;s what I strive to do, I have a passion for
-              technology and a desire to always push the limits of what is
-              possible. I am excited to see where my career takes me and am
-              always open to new opportunities. 🙂
+              I have a wide range of hobbies and passions that keep me busy.
+              From reading, playing sports, traveling, to cooking.
             </p>
           </div>
           <div className="text-center md:w-1/2 md:text-left">
