@@ -263,10 +263,8 @@ body {
   /* Reduced gap (was 0.75rem) */
 }
 
-.skill-category-title::before {
-  content: "♦";
-  color: #3b82f6;
-  font-size: 1.1em;
+.skill-category-title {
+  font-size: 1.3em;
   /* Reduced icon size (was 1.2em) */
 }
 
@@ -486,54 +484,112 @@ body {
 }
 
 .experience-section {
-  background: #0a0a0a;
+  background: #111111;
   padding: 4rem 0;
 }
 
-.experience-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+/* NEW TIMELINE STYLES */
+.timeline-container {
+  position: relative;
+  max-width: 900px; /* Center and constrain width */
+  margin: 0 auto;
+  padding-left: 50px; /* Space for the line and dots */
 }
 
-.experience-card {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-  padding: 2rem;
-  border-radius: 16px;
-  border: 1px solid #27272a;
+/* The vertical line */
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6); /* Gradient line */
+  top: 0;
+  bottom: 0;
+  left: 5px;
+  z-index: 0; /* Behind the content cards */
+}
+
+.timeline-roadmap-intro {
+  text-align: center;
+  color: #a1a1aa;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-radius: 10px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  padding-left: 45px; /* Space to move content past the line */
+}
+
+/* The dot on the line */
+.timeline-dot {
+  position: absolute;
+  top: 5px; /* Adjust to vertically align with the date/title */
+  left: 17px;
+  height: 14px;
+  width: 14px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  border: 2px solid #0a0a0a; /* Outer ring for depth */
+  z-index: 1;
+  box-shadow: 0 0 0 4px #1a1a2e; /* Glow effect/ring */
   transition: all 0.3s ease;
 }
 
-.experience-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
+.timeline-item:hover .timeline-dot {
+  background-color: #8b5cf6;
+  transform: scale(1.2);
 }
 
-.experience-card h3 {
-  color: #f4f4f5;
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
+.timeline-content {
+  width: 100%;
+  /* Inherits all existing .experience-card styles */
 }
 
-.company {
-  color: #3b82f6;
+/* Ensure the roadmap entry styles are also present and clean */
+.experience-roadmap-entry {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px dashed #27272a;
+}
+
+.experience-roadmap-entry h4 {
+  color: #8b5cf6;
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
 }
 
-.date {
-  color: #71717a;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+.experience-roadmap-entry p {
+  color: #d4d4d8;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
 }
 
-.experience-card ul {
+.experience-roadmap-entry ul {
   margin-left: 1.5rem;
   color: #d4d4d8;
 }
 
-.experience-card li {
-  margin-bottom: 0.75rem;
+.experience-roadmap-entry li {
+  margin-bottom: 0.5rem;
+}
+
+/* Media Query Adjustment for smaller screens */
+@media (max-width: 600px) {
+  .timeline-container {
+    padding-left: 30px; /* Reduce left padding on small screens */
+  }
+
+  .timeline-container::before {
+    left: 10px; /* Move line slightly left */
+  }
+
+  .timeline-dot {
+    left: 7px; /* Adjust dot position */
+  }
 }
 
 .contact-section {
@@ -621,6 +677,28 @@ body {
 .ferrari-badge {
   background: linear-gradient(135deg, #dc0000 0%, #8b0000 100%);
   border-color: #dc0000;
+  color: white;
+}
+
+.teaching-badge {
+  background: linear-gradient(
+    135deg,
+    #f59e0b 0%,
+    #ef4444 100%
+  ); /* Amber to Red */
+  border-color: #f59e0b;
+  color: white;
+}
+
+.hiking-badge {
+  background: linear-gradient(135deg, #10b981 0%, #065f46 100%);
+  border-color: #10b981;
+  color: white;
+}
+
+.gym-badge {
+  background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+  border-color: #a855f7;
   color: white;
 }
 
