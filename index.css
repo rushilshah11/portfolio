@@ -486,7 +486,7 @@ body {
 }
 
 .experience-section {
-  background: #111111;
+  background: #0a0a0a;
   padding: 4rem 0;
 }
 
@@ -537,7 +537,7 @@ body {
 }
 
 .contact-section {
-  background: #0a0a0a;
+  background: #111111;
   /* Changed background */
   padding: 4rem 0;
   text-align: center;
@@ -572,7 +572,7 @@ body {
 }
 
 .favorites-section {
-  background: #111111;
+  background: #0a0a0a;
   /* Changed background */
   padding: 4rem 0;
 }
