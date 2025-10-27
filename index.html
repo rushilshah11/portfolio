@@ -409,154 +409,192 @@
     <section class="experience-section" id="experience">
         <div class="container">
             <h2 class="section-title">Experience</h2>
+            <div class="timeline-roadmap-intro">
+                <p>Welcome to my professional roadmap! Instead of a traditional resume listing, this is a narrative of
+                    my
+                    growth, architectural learnings, and pivotal career decisions that have led me to specialize in
+                    scalable
+                    backend systems.</p>
+            </div>
             <div class="timeline-container">
-                <div class="timeline-roadmap-intro">
-                    <p>Welcome to my professional roadmap! Instead of a traditional resume listing, this is a narrative
-                        of my
-                        growth, architectural learnings, and pivotal career decisions that have led me to specialize in
-                        scalable
-                        backend systems.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="experience-card timeline-content">
-                        <h3>Software Engineer (Incoming)</h3>
-                        <div class="company">Bank of America</div>
-                        <div class="date">July 2025 - Present</div>
-                        <div class="experience-roadmap-entry">
-                            <h4>Next Destination: Scaling & Reliability</h4>
-                            <p>This role marks the beginning of my full-time career, where I plan to deeply focus on
-                                <b>building and
-                                    maintaining high-scale, resilient backend systems</b>. My primary goal is to
-                                transition
-                                my
-                                theoretical
-                                knowledge of architecture and design patterns into real-world, production-level code.
-                                I'm excited to
-                                learn firsthand about enterprise-level compliance, security, and the intricacies of
-                                operating
-                                mission-critical financial technology. This is the stage where I evolve from an engineer
-                                who
-                                <i>builds</i> to one who <i>scales</i> and <i>secures</i>.
-                            </p>
+                <div class="timeline-nav">
+                    <div class="timeline-nav-inner">
+                        <div class="timeline-nav-item active" onclick="showExperience(0)">
+                            <div class="timeline-nav-dot"></div>
+                            <div class="timeline-nav-title">Software Engineer</div>
+                            <div class="timeline-nav-company">Bank of America</div>
+                            <div class="timeline-nav-date">July 2025 - Present</div>
+                        </div>
+                        <div class="timeline-nav-item inactive" onclick="showExperience(1)">
+                            <div class="timeline-nav-dot"></div>
+                            <div class="timeline-nav-title">Director of Technology</div>
+                            <div class="timeline-nav-company">Trojan Marketing Group</div>
+                            <div class="timeline-nav-date">Sep 2022 - May 2025</div>
+                        </div>
+                        <div class="timeline-nav-item inactive" onclick="showExperience(2)">
+                            <div class="timeline-nav-dot"></div>
+                            <div class="timeline-nav-title">Wealth Management Intern</div>
+                            <div class="timeline-nav-company">Bank of America</div>
+                            <div class="timeline-nav-date">June 2024 - Aug 2024</div>
+                        </div>
+                        <div class="timeline-nav-item inactive" onclick="showExperience(3)">
+                            <div class="timeline-nav-dot"></div>
+                            <div class="timeline-nav-title">Web Development Intern</div>
+                            <div class="timeline-nav-company">NASA JPL</div>
+                            <div class="timeline-nav-date">Sep 2023 - May 2024</div>
+                        </div>
+                        <div class="timeline-nav-item inactive" onclick="showExperience(4)">
+                            <div class="timeline-nav-dot"></div>
+                            <div class="timeline-nav-title">Software Engineering Intern</div>
+                            <div class="timeline-nav-company">Sunkist Dental</div>
+                            <div class="timeline-nav-date">Mar 2023 - May 2023</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="experience-card timeline-content">
-                        <h3>Director of Technology</h3>
-                        <div class="company">Trojan Marketing Group</div>
-                        <div class="date">Sep 2022 - May 2025</div>
-                        <div class="experience-roadmap-entry">
-                            <h4>Pivotal Point: Leveraging Data for Business Impact</h4>
-                            <p>This experience was my initial foray into applying technical skills for direct business
-                                value,
-                                serving as an early pivot toward <b>backend data and API utilization</b>.</p>
-                            <ul>
-                                <li><b>What I Did:</b> I architected data pipelines using <b>Python (Pandas,
-                                        Seaborn)</b>
-                                    and
-                                    <b>Tableau</b>
-                                    to ingest competitor data scraped from the web, generating over 50 data-driven
-                                    reports for
-                                    strategists.
-                                </li>
-                                <li><b>The Insight:</b> I realized the power of data streams and APIs. By integrating
+                <div class="timeline-content-wrapper">
+                    <div class="timeline-item active" data-index="0">
+                        <div class="experience-card timeline-content">
+                            <h3>Software Engineer (Incoming)</h3>
+                            <div class="company">Bank of America</div>
+                            <div class="date">July 2025 - Present</div>
+                            <div class="experience-roadmap-entry">
+                                <h4>Next Destination: Scaling & Reliability</h4>
+                                <p>This role marks the beginning of my full-time career, where I plan to deeply focus on
+                                    <b>building and maintaining high-scale, resilient backend systems</b>. My primary
+                                    goal
+                                    is to
+                                    transition my theoretical knowledge of architecture and design patterns into
+                                    real-world,
+                                    production-level code. I'm excited to learn firsthand about enterprise-level
+                                    compliance,
+                                    security, and the intricacies of operating mission-critical financial technology.
+                                    This
+                                    is the
+                                    stage where I evolve from an engineer who <i>builds</i> to one who <i>scales</i> and
+                                    <i>secures</i>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-index="1">
+                        <div class="experience-card timeline-content">
+                            <h3>Director of Technology</h3>
+                            <div class="company">Trojan Marketing Group</div>
+                            <div class="date">Sep 2022 - May 2025</div>
+                            <div class="experience-roadmap-entry">
+                                <h4>Pivotal Point: Leveraging Data for Business Impact</h4>
+                                <p>This experience was my initial foray into applying technical skills for direct
+                                    business
+                                    value,
+                                    serving as an early pivot toward <b>backend data and API utilization</b>.</p>
+                                <ul>
+                                    <li><b>What I Did:</b> I architected data pipelines using <b>Python (Pandas,
+                                            Seaborn)</b> and
+                                        <b>Tableau</b> to ingest competitor data scraped from the web, generating over
+                                        50
+                                        data-driven
+                                        reports for strategists.
+                                    </li>
+                                    <li><b>The Insight:</b> I realized the power of data streams and APIs. By
+                                        integrating
+                                        the
+                                        <b>Spotify Web API</b> into a web app, we drove <b>$10,000+ in sales</b>,
+                                        validating
+                                        that
+                                        well-executed backend logic is a core business driver. I also used the
+                                        <b>YouTube
+                                            Data API</b>
+                                        to analyze campaign video performance.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item" data-index="2">
+                        <div class="experience-card timeline-content">
+                            <h3>Merrill Lynch Wealth Management Intern</h3>
+                            <div class="company">Bank of America</div>
+                            <div class="date">June 2024 - Aug 2024</div>
+                            <div class="experience-roadmap-entry">
+                                <h4>The Contextual Bridge: Business & Technology</h4>
+                                <p>This internship provided invaluable <b>contextual understanding</b> of the financial
+                                    services
+                                    industry. It showed me the critical importance of security, regulation, and high
+                                    availability,
+                                    which are non-negotiables in FinTech.</p>
+                                <p>I learned to view technical decisions through a <b>risk and compliance lens</b>,
+                                    which is
+                                    essential
+                                    for any scalable financial system. This experience solidified my appreciation for
                                     the
-                                    <b>Spotify Web
-                                        API</b> into a web app, we drove <b>$10,000+ in sales</b>, validating that
-                                    well-executed
-                                    backend
-                                    logic is a core business driver. I also used the <b>YouTube Data API</b> to analyze
-                                    campaign video
-                                    performance.
-                                </li>
-                            </ul>
+                                    backend,
+                                    where all the sensitive, critical business logic resides.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="experience-card timeline-content">
-                        <h3>Merrill Lynch Wealth Management Intern</h3>
-                        <div class="company">Bank of America</div>
-                        <div class="date">June 2024 - Aug 2024</div>
-                        <div class="experience-roadmap-entry">
-                            <h4>The Contextual Bridge: Business & Technology</h4>
-                            <p>This internship provided invaluable <b>contextual understanding</b> of the financial
-                                services industry.
-                                It showed me the critical importance of security, regulation, and high availability,
-                                which are
-                                non-negotiables in FinTech.</p>
-                            <p>I learned to view technical decisions through a <b>risk and compliance lens</b>, which is
-                                essential for
-                                any scalable financial system. This experience solidified my appreciation for the
-                                backend, where all
-                                the sensitive, critical business logic resides.</p>
+                    <div class="timeline-item" data-index="3">
+                        <div class="experience-card timeline-content">
+                            <h3>Web Development APX Intern</h3>
+                            <div class="company">NASA Jet Propulsion Laboratory</div>
+                            <div class="date">Sep 2023 - May 2024</div>
+                            <div class="experience-roadmap-entry">
+                                <h4>Architectural Awareness: CMS & User-Centric Design</h4>
+                                <p>I learned about the complexities of large, public-facing websites and the importance
+                                    of
+                                    <b>governance and accessibility</b>. My focus was on the frontend, transitioning to
+                                    a
+                                    new Content
+                                    Management System (CMS).
+                                </p>
+                                <ul>
+                                    <li><b>Key Takeaway:</b> I gained practical experience with <b>manual accessibility
+                                            testing</b>,
+                                        ensuring compliance (keyboard navigation, screen reader compatibility). This
+                                        taught
+                                        me that good
+                                        engineering is about <b>inclusive design</b> and adhering to strict technical
+                                        standards.</li>
+                                    <li><b>Pivotal Shift:</b> I recognized my greater passion for the systems
+                                        <i>behind</i>
+                                        the
+                                        CMS—the databases, APIs, and infrastructure—reinforcing my long-term career
+                                        focus on
+                                        the
+                                        backend.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="experience-card timeline-content">
-                        <h3>Web Development APX Intern</h3>
-                        <div class="company">NASA Jet Propulsion Laboratory</div>
-                        <div class="date">Sep 2023 - May 2024</div>
-                        <div class="experience-roadmap-entry">
-                            <h4>Architectural Awareness: CMS & User-Centric Design</h4>
-                            <p>I learned about the complexities of large, public-facing websites and the importance of
-                                <b>governance
-                                    and accessibility</b>. My focus was on the frontend, transitioning to a new Content
-                                Management System
-                                (CMS).
-                            </p>
-                            <ul>
-                                <li><b>Key Takeaway:</b> I gained practical experience with <b>manual accessibility
-                                        testing</b>, ensuring
-                                    compliance (keyboard navigation, screen reader compatibility). This taught me that
-                                    good
-                                    engineering is about <b>inclusive design</b> and adhering to strict technical
-                                    standards.</li>
-                                <li><b>Pivotal Shift:</b> I recognized my greater passion for the systems <i>behind</i>
-                                    the
-                                    CMS—the
-                                    databases, APIs, and infrastructure—reinforcing my long-term career focus on the
-                                    backend.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="experience-card timeline-content">
-                        <h3>Software Engineering Intern</h3>
-                        <div class="company">Sunkist Dental</div>
-                        <div class="date">Mar 2023 - May 2023</div>
-                        <div class="experience-roadmap-entry">
-                            <h4>The Starting Line: Full-Stack Ownership</h4>
-                            <p>This was my first taste of end-to-end project ownership. I was responsible for delivering
-                                a
-                                full-stack solution from concept to deployment.</p>
-                            <ul>
-                                <li><b>What I Built:</b> A responsive Single-Page Application using <b>ReactJS</b> for
-                                    the
-                                    frontend and
-                                    <b>Firebase</b> for backend/hosting.
-                                </li>
-                                <li><b>Measurable Impact:</b> Implementing the online booking reduced front desk
-                                    workload
-                                    by <b>20%</b>
-                                    and contributed to over <b>50 new client acquisitions</b>. This experience proved
-                                    that
-                                    my code
-                                    could directly solve operational problems and drive revenue.</li>
-                            </ul>
+                    <div class="timeline-item" data-index="4">
+                        <div class="experience-card timeline-content">
+                            <h3>Software Engineering Intern</h3>
+                            <div class="company">Sunkist Dental</div>
+                            <div class="date">Mar 2023 - May 2023</div>
+                            <div class="experience-roadmap-entry">
+                                <h4>The Starting Line: Full-Stack Ownership</h4>
+                                <p>This was my first taste of end-to-end project ownership. I was responsible for
+                                    delivering
+                                    a
+                                    full-stack solution from concept to deployment.</p>
+                                <ul>
+                                    <li><b>What I Built:</b> A responsive Single-Page Application using <b>ReactJS</b>
+                                        for
+                                        the
+                                        frontend and <b>Firebase</b> for backend/hosting.
+                                    </li>
+                                    <li><b>Measurable Impact:</b> Implementing the online booking reduced front desk
+                                        workload by
+                                        <b>20%</b> and contributed to over <b>50 new client acquisitions</b>. This
+                                        experience proved
+                                        that my code could directly solve operational problems and drive revenue.
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -629,6 +667,35 @@
     <script>
         function toggleProject(card) {
             card.classList.toggle('expanded');
+        }
+        function showExperience(index) {
+            // Get all timeline items and nav items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const navItems = document.querySelectorAll('.timeline-nav-item');
+
+            // Hide all timeline items
+            timelineItems.forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Show the selected timeline item
+            timelineItems[index].classList.add('active');
+
+            // Update nav items - mark all as inactive first
+            navItems.forEach((item, i) => {
+                item.classList.remove('active');
+                item.classList.add('inactive');
+            });
+
+            // Mark the selected item as active
+            navItems[index].classList.remove('inactive');
+            navItems[index].classList.add('active');
+
+            // Smooth scroll to the content on mobile
+            if (window.innerWidth <= 992) {
+                const contentWrapper = document.querySelector('.timeline-content-wrapper');
+                contentWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     </script>
 </body>

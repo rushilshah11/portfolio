@@ -489,23 +489,104 @@ body {
 }
 
 /* NEW TIMELINE STYLES */
+/* NEW TIMELINE STYLES */
 .timeline-container {
   position: relative;
-  max-width: 900px; /* Center and constrain width */
+  max-width: 1200px;
   margin: 0 auto;
-  padding-left: 50px; /* Space for the line and dots */
+  display: flex;
+  gap: 2rem;
+}
+
+.timeline-nav {
+  flex: 0 0 300px;
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.timeline-nav-inner {
+  position: relative;
+  padding-left: 30px;
 }
 
 /* The vertical line */
-.timeline-container::before {
+.timeline-nav-inner::before {
   content: "";
   position: absolute;
   width: 2px;
-  background: linear-gradient(to bottom, #3b82f6, #8b5cf6); /* Gradient line */
+  background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
   top: 0;
   bottom: 0;
-  left: 5px;
-  z-index: 0; /* Behind the content cards */
+  left: 12px;
+  z-index: 0;
+}
+
+.timeline-nav-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.timeline-nav-item.inactive {
+  opacity: 0.4;
+}
+
+.timeline-nav-item.active {
+  opacity: 1;
+}
+
+.timeline-nav-dot {
+  position: absolute;
+  top: 8px;
+  left: -18px;
+  height: 12px;
+  width: 12px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  border: 2px solid #0a0a0a;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.timeline-nav-item.active .timeline-nav-dot {
+  background-color: #8b5cf6;
+  transform: scale(1.3);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.3);
+}
+
+.timeline-nav-item:hover .timeline-nav-dot {
+  background-color: #8b5cf6;
+  transform: scale(1.2);
+}
+
+.timeline-nav-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f4f4f5;
+  margin-bottom: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.timeline-nav-item.inactive .timeline-nav-title {
+  color: #71717a;
+}
+
+.timeline-nav-company {
+  font-size: 0.9rem;
+  color: #a1a1aa;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-nav-date {
+  font-size: 0.85rem;
+  color: #71717a;
+}
+
+.timeline-content-wrapper {
+  flex: 1;
+  min-height: 400px;
 }
 
 .timeline-roadmap-intro {
@@ -518,34 +599,27 @@ body {
 }
 
 .timeline-item {
-  position: relative;
-  margin-bottom: 3rem;
-  padding-left: 45px; /* Space to move content past the line */
+  display: none;
 }
 
-/* The dot on the line */
-.timeline-dot {
-  position: absolute;
-  top: 5px; /* Adjust to vertically align with the date/title */
-  left: 17px;
-  height: 14px;
-  width: 14px;
-  background-color: #3b82f6;
-  border-radius: 50%;
-  border: 2px solid #0a0a0a; /* Outer ring for depth */
-  z-index: 1;
-  box-shadow: 0 0 0 4px #1a1a2e; /* Glow effect/ring */
-  transition: all 0.3s ease;
+.timeline-item.active {
+  display: block;
+  animation: fadeInSlide 0.5s ease-out;
 }
 
-.timeline-item:hover .timeline-dot {
-  background-color: #8b5cf6;
-  transform: scale(1.2);
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .timeline-content {
   width: 100%;
-  /* Inherits all existing .experience-card styles */
 }
 
 /* Ensure the roadmap entry styles are also present and clean */
@@ -578,17 +652,41 @@ body {
 }
 
 /* Media Query Adjustment for smaller screens */
-@media (max-width: 600px) {
+/* Media Query Adjustment for smaller screens */
+@media (max-width: 992px) {
   .timeline-container {
-    padding-left: 30px; /* Reduce left padding on small screens */
+    flex-direction: column;
   }
 
-  .timeline-container::before {
-    left: 10px; /* Move line slightly left */
+  .timeline-nav {
+    position: relative;
+    top: 0;
+    flex: none;
+    width: 100%;
   }
 
-  .timeline-dot {
-    left: 7px; /* Adjust dot position */
+  .timeline-nav-inner {
+    display: flex;
+    overflow-x: auto;
+    padding-left: 0;
+    padding-bottom: 1rem;
+  }
+
+  .timeline-nav-inner::before {
+    display: none;
+  }
+
+  .timeline-nav-item {
+    margin-bottom: 0;
+    margin-right: 2rem;
+    min-width: 200px;
+  }
+
+  .timeline-nav-dot {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 0.5rem;
   }
 }
 
