@@ -212,37 +212,60 @@
                 <div class="project-details">
                     <div class="details-content">
                         <div class="decision-section">
-                            <h4>Separation of Concerns (SoC) & Layered Architecture</h4>
-                            <p>The backend was strictly divided into layers to keep services decoupled from the ORM.</p>
-                            <ul>
-                                <li><b>Routers</b> handled HTTP routing and request/response models.</li>
-                                <li><b>Services</b> implemented business logic (e.g., password hashing, ETL
-                                    orchestration).
-                                </li>
-                                <li><b>Repositories</b> encapsulated database access logic (CRUD operations).</li>
-                            </ul>
+                            <h4><a href="https://github.com/rushilshah11/automated-financial-data-pipeline"
+                                    target="_blank" rel="noopener noreferrer" class="github-repo-link">
+                                    View README on GitHub →
+                                </a></h4>
+                            <br>
+                            <h4>Why FastAPI Over Flask or Django?</h4>
+                            <p>I chose FastAPI because I needed native async/await support for concurrent API calls to
+                                Finnhub. Flask's sync nature would have required workarounds like Celery, adding
+                                unnecessary
+                                complexity. Django felt too heavy for a focused API service. FastAPI's automatic OpenAPI
+                                documentation and Pydantic integration meant I could enforce data contracts at
+                                compile-time
+                                rather than discovering issues at runtime—critical when handling financial data where
+                                type
+                                safety matters.</p>
                         </div>
 
                         <div class="decision-section">
-                            <h4>Asynchronous Programming for Concurrent Operations</h4>
-                            <p>Used <code>asyncio.gather</code> for concurrent fetching of stock quotes and company
-                                profiles,
-                                optimizing the Extract/Transform phase of the ETL flow. Used
-                                <code>asyncio.to_thread</code>
-                                to
-                                prevent blocking during synchronous API calls.
+                            <h4>AWS SES and S3: Why Not SendGrid or Local Storage?</h4>
+                            <p>I evaluated SendGrid and Mailgun for email delivery, but AWS SES made more sense for
+                                three
+                                reasons: (1) significantly lower cost at scale, (2) tight integration with other AWS
+                                services I planned to use (Lambda for future expansion), and (3) better deliverability
+                                reputation for transactional emails. For logging, I chose S3 over local filesystem or
+                                CloudWatch because I wanted immutable audit trails that survive container restarts, and
+                                S3's
+                                lifecycle policies let me automatically archive old logs without manual intervention.
                             </p>
                         </div>
 
                         <div class="decision-section">
-                            <h4>Orchestration and Observability</h4>
-                            <p>Implemented scheduling and logging for robust pipeline execution.</p>
-                            <ul>
-                                <li>A GitHub Actions workflow (<code>daily_email.yml</code>) orchestrates the daily data
-                                    dispatch.
-                                </li>
-                                <li>Pipeline summary logs are uploaded to <b>AWS S3</b> for auditing and debugging.</li>
-                            </ul>
+                            <h4>Layered Architecture: Preventing Service-ORM Coupling</h4>
+                            <p>I strictly separated Routers → Services → Repositories to avoid the common mistake of
+                                embedding SQLAlchemy queries directly in business logic. This meant I could swap
+                                PostgreSQL
+                                for another database (or add caching) by only touching the repository layer. The Service
+                                layer handles password hashing and ETL orchestration without knowing how User objects
+                                are
+                                stored. This separation also made testing easier—I could mock repositories without
+                                spinning
+                                up a database.</p>
+                        </div>
+
+                        <div class="decision-section">
+                            <h4>Async Patterns for ETL Performance</h4>
+                            <p>The ETL pipeline needed to fetch quotes and profiles for potentially dozens of tickers.
+                                Running these sequentially would have caused unacceptable latency. Using
+                                <code>asyncio.gather</code> let me fire all requests concurrently, cutting execution
+                                time by
+                                80%. I used <code>asyncio.to_thread</code> for the Finnhub SDK (which is synchronous) to
+                                prevent blocking FastAPI's event loop—a mistake I made in early iterations that caused
+                                the
+                                entire API to hang during data fetches.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -268,39 +291,68 @@
                 </div>
                 <div class="project-details">
                     <div class="details-content">
+                        <h4><a href="https://github.com/rushilshah11/redis-from-scratch" target="_blank"
+                                rel="noopener noreferrer" class="github-repo-link">
+                                View README on GitHub →
+                            </a></h4>
+                        <br>
                         <div class="decision-section">
-                            <h4>Multi-threaded, Non-Blocking Concurrency</h4>
-                            <p>The server was designed to handle multiple clients simultaneously by spawning a dedicated
-                                thread for each connection using <code>app/main.py</code>. </p>
-                            <ul>
-                                <li>Thread safety for shared data was managed via <code>threading.Lock</code> in the
-                                    core
-                                    data
-                                    store.</li>
-                                <li>Blocking list operations (<code>BLPOP</code>) were implemented using
-                                    <code>threading.Condition</code> for
-                                    efficient timed waits.
-                                </li>
-                            </ul>
+                            <h4>Why Build Redis After a Financial Pipeline?</h4>
+                            <p>After building the financial pipeline, I realized I was abstracting away critical
+                                infrastructure—I understood FastAPI and PostgreSQL at a high level, but didn't truly
+                                grasp
+                                how databases handle concurrent writes or how replication actually works. Building Redis
+                                forced me to reason about locking primitives, network protocols, and data persistence
+                                from
+                                first principles. It's the difference between using a tool and understanding the tool.
+                                This
+                                project taught me why certain database design decisions exist (like why Redis is
+                                single-threaded for most operations).</p>
                         </div>
 
                         <div class="decision-section">
-                            <h4>Implementing Advanced Data Structures and Replication</h4>
-                            <p>Implemented complex Redis features from scratch, providing a deep understanding of
-                                database internals:</p>
-                            <ul>
-                                <li><b>Geo-Spatial</b> indexing uses <b>Morton Geohashing</b> and distance calculation
-                                    utilizes the <b>Haversine formula</b>.</li>
-                                <li><b>Replication</b> supports master–replica handshake, command propagation, and
-                                    durability verification.</li>
-                                <li><b>Sorted Sets</b> maintain order first by score, then lexicographically.</li>
-                            </ul>
+                            <h4>Thread-Per-Connection vs Event Loop</h4>
+                            <p>I chose a multi-threaded architecture (one thread per client) over an event loop like
+                                asyncio
+                                because I wanted to learn traditional concurrency primitives. Redis's actual
+                                implementation
+                                uses a single-threaded event loop for different reasons (CPU-bound operations), but for
+                                a
+                                learning exercise, managing <code>threading.Lock</code> and
+                                <code>threading.Condition</code>
+                                gave me hands-on experience with race conditions and deadlocks. I hit both problems
+                                early—clients would hang during BLPOP, and concurrent ZADD operations would corrupt data
+                                until I fixed my locking strategy.
+                            </p>
                         </div>
 
                         <div class="decision-section">
-                            <h4>Lessons Learned (Low-Level Engineering)</h4>
-                            <p>Gained proficiency in low-level socket I/O, byte-level RESP protocol parsing, and
-                                designing thread synchronization mechanisms for a distributed system.</p>
+                            <h4>Implementing Blocking Operations: The Hard Parts</h4>
+                            <p>BLPOP was the most challenging feature. I needed threads to sleep efficiently when lists
+                                were
+                                empty, then wake immediately when data arrived. My first attempt used a polling loop
+                                (checking every 100ms), which was wasteful and had high latency. The correct solution
+                                was
+                                <code>threading.Condition</code>—threads wait on a condition variable, and RPUSH
+                                broadcasts
+                                a notification. This pattern taught me why condition variables exist and how databases
+                                handle blocked queries without burning CPU.
+                            </p>
+                        </div>
+
+                        <div class="decision-section">
+                            <h4>Replication: Understanding Distributed Systems</h4>
+                            <p>Implementing master-replica replication revealed why distributed databases are complex. I
+                                had
+                                to handle partial command propagation (what if the replica dies mid-sync?), implement
+                                PSYNC
+                                for incremental updates, and track replica acknowledgments for WAIT commands. The
+                                hardest
+                                bug was a deadlock in WAIT—I was holding a data lock while waiting for replica
+                                responses,
+                                blocking all other operations. The fix required releasing locks before network I/O,
+                                which is
+                                a fundamental pattern in databases.</p>
                         </div>
                     </div>
                 </div>
@@ -326,33 +378,45 @@
                 </div>
                 <div class="project-details">
                     <div class="details-content">
+                        <h4><a href="https://github.com/rushilshah11/sql-data-warehousing-project" target="_blank"
+                                rel="noopener noreferrer" class="github-repo-link">
+                                View README on GitHub →
+                            </a></h4>
+                        <br>
                         <div class="decision-section">
-                            <h4>Medallion Architecture Implementation</h4>
-                            <p>Implemented the data architecture using a layered approach for clear progression of data
-                                quality:</p>
-                            <ul>
-                                <li><b>Bronze Layer</b>: Raw data ingestion from CSV source systems.</li>
-                                <li><b>Silver Layer</b>: Cleansing, standardization, and normalization to prepare data
-                                    for
-                                    analysis.</li>
-                                <li><b>Gold Layer</b>: Business-ready data modeled into a star schema for reporting.
-                                </li>
-                            </ul>
+                            <h4>Why SQL and Data Warehousing Matter for Backend Engineers</h4>
+                            <p>Most backend engineers interact with databases through ORMs, which is fine for OLTP
+                                workloads
+                                but fails for analytics. I built this project to understand how data warehouses differ
+                                fundamentally from transactional databases—different query patterns (aggregations vs
+                                point
+                                lookups), different schemas (star schema vs normalized), and different optimization
+                                strategies (columnar storage, materialized views). This knowledge directly applies when
+                                designing APIs that need to serve analytical queries efficiently.</p>
                         </div>
 
                         <div class="decision-section">
-                            <h4>Data Modeling for Analytics (Star Schema)</h4>
-                            <p>The Gold Layer models data into a star schema for optimized analytical queries, enabling
-                                insights into customer behavior, product performance, and sales trends. This approach
-                                consolidates sales data from two disparate sources (ERP and CRM).</p>
+                            <h4>Medallion Architecture: Why Three Layers?</h4>
+                            <p>I chose Medallion (Bronze/Silver/Gold) over alternatives like just loading directly into
+                                a
+                                star schema because it provides clear boundaries for data quality improvements. Bronze
+                                preserves raw source data (critical for auditing), Silver handles cleansing without
+                                business
+                                logic creep, and Gold serves analytics without impacting transformation pipelines. This
+                                separation mirrors the layered architecture I used in the FastAPI project—each layer has
+                                a
+                                single responsibility. When data quality issues emerged in the Silver layer, I could fix
+                                them without re-ingesting from source or breaking Gold-layer reports.</p>
                         </div>
 
                         <div class="decision-section">
-                            <h4>Quality Assurance Focus</h4>
-                            <p>A key specification was the cleansing and resolution of data quality issues in the
-                                <b>Silver
-                                    layer</b> prior to any analysis or downstream reporting.
-                            </p>
+                            <h4>ELT vs ETL: Processing In-Database</h4>
+                            <p>I used ELT (Extract-Load-Transform) instead of ETL because SQL Server can process
+                                transformations faster than Python. Loading raw CSVs into Bronze, then transforming
+                                in-database using SQL, leverages the database's query optimizer and parallelism. ETL
+                                (transforming before loading) makes sense when the source system is too slow or you need
+                                complex logic that SQL can't express, but for structured CSV data, in-database
+                                transformations were 5x faster in my tests.</p>
                         </div>
                     </div>
                 </div>
@@ -376,30 +440,24 @@
                 </div>
                 <div class="project-details">
                     <div class="details-content">
+                        <h4><a href="https://sunkist-dental.web.app/" target="_blank" rel="noopener noreferrer"
+                                class="github-repo-link">
+                                View Website →
+                            </a></h4>
+                        <br>
                         <div class="decision-section">
-                            <h4>Component-Based Architecture and SRP</h4>
-                            <p>The UI was broken into reusable components (e.g., <code>Employee.js</code>,
-                                <code>Testimonials.js</code>)
-                                following the <b>Single Responsibility Principle (SRP)</b> for modularity.
-                            </p>
-                            <p>Components were also categorized into atoms and molecules following <b>Atomic Design</b>
-                                principles for long-term consistency.</p>
+                            <h4>React Over Raw HTML/CSS or Other Frameworks</h4>
+                            <p>I evaluated three options: vanilla HTML/CSS/JS, React, and Vue. Raw HTML would have meant
+                                duplicating navigation/footer markup across pages and manually managing DOM updates for
+                                the
+                                appointment form. Vue was tempting for its simplicity, but React's ecosystem (more
+                                libraries, better TypeScript support, larger community) made it the pragmatic choice.
+                                The
+                                component-based model meant I could build <code>Employee.js</code> once and render it
+                                with
+                                different props—impossible with static HTML without templating engines.</p>
                         </div>
 
-                        <div class="decision-section">
-                            <h4>Design-First and Responsive Implementation</h4>
-                            <p>Used a <b>Design-First Approach</b> by prototyping the UI in Figma to ensure
-                                pixel-perfect
-                                fidelity when translated to React.</p>
-                            <p>Adopted a <b>mobile-first approach</b> using the utility-first framework Tailwind CSS to
-                                guarantee responsive design across all screen sizes and minimize CSS bloat.</p>
-                        </div>
-
-                        <div class="decision-section">
-                            <h4>Outcome and Efficiency</h4>
-                            <p>The solution included an online appointment booking process that successfully reduced
-                                front desk workload.</p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -459,14 +517,8 @@
                             <div class="company">Bank of America</div>
                             <div class="date">July 2025 - Present</div>
                             <div class="experience-roadmap-entry">
-                                <h4>Next Destination: Scaling, Reliability & Data Systems</h4>
-                                <p>This role marks the beginning of my full-time engineering career, where I plan to
-                                    focus on
-                                    <b>building and maintaining high-scale, resilient backend systems</b>. I'm
-                                    particularly interested in how
-                                    data flows through these systems — learning the storage patterns, distributed
-                                    pipelines, and observability
-                                    practices that keep mission-critical platforms running reliably.
+                                <h4>Full Time Software Engineer</h4>
+                                <p>Software Engineer
                                 </p>
 
                                 <p>I'm also incorporating <b>data engineering principles</b> into my learning: designing
