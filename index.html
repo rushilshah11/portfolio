@@ -194,6 +194,87 @@
             <div class="project-card" onclick="toggleProject(this)">
                 <div class="project-header">
                     <div>
+                        <h3 class="project-title">Basketball Microservices Project</h3>
+                        <p class="project-summary">A deep dive into distributed systems, polyglot architecture, and the trade-offs of modern software engineering through building a basketball statistics platform using microservices.</p>
+                    </div>
+                    <span class="expand-icon">↓</span>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Spring Boot</span>
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">gRPC</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">JWT</span>
+                    <span class="tech-tag">Netflix Eureka</span>
+                    <span class="tech-tag">C4 Model</span>
+                    <span class="tech-tag">System Design</span>
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">TypeScript</span>
+                </div>
+                <div class="project-details">
+                    <div class="details-content">
+                        <div class="decision-section">
+                            <div class="project-links">
+                                <h4><a href="https://github.com/rushilshah11/basketball-microservices-project" target="_blank"
+                                        rel="noopener noreferrer" class="github-repo-link">
+                                        View README on GitHub →
+                                    </a></h4>
+                                <button class="architecture-btn" onclick="viewArchitecture(event)">View Architecture</button>
+                            </div>
+                            <br>
+                            <p>
+                                Most of my previous projects were about building features. This project was different—it was about building a system. I
+                                wanted to move past monolithic architecture and actually deal with the "distributed systems" problems I’d been reading
+                                about. I built a platform to track NBA player stats and predict future performance, but the real challenge was how these
+                                services talked to each other.
+                            </p>
+                            <h4>The "Why" Behind the Tech</h4>
+                            <p>I went with a Polyglot Architecture because I wanted the right tool for the job, not just the tool I knew best. I used
+                            Java (Spring Boot) for the Security and Stats services because I wanted that strict type-safety for core business logic.
+                            But for the nba-fetcher and prediction services, I used Python. Trying to do data science or heavy API scraping in Java
+                            felt like fighting the language, while Python’s ecosystem made it seamless.
+                            <br><br>
+                            One of the biggest trade-offs I made was implementing gRPC for internal communication between my Security and Stats
+                            services. I could have used standard REST, but I wanted to practice low-latency communication. Using Protobufs felt like
+                            a win because it forced me to define a strict "contract" between services—no more guessing what an API response looks
+                            like.</p>
+                        </div>
+            
+                        <div class="decision-section">
+                            <h4>Engineering Maturity & Habits</h4>
+                            <p>When you have five services running at once, you can’t just "keep it all in your head."
+                            
+                            Documentation as a Tool: I started using ADRs (Architectural Decision Records). Every time I hit a fork in the road—like
+                            choosing Redis Pub/Sub to decouple my watchlist updates—I wrote down why. It saved me weeks of "Why did I do this
+                            again?"
+                            <br><br>
+                            Visualizing Complexity: I adopted the C4 Model for my diagrams. I realized that if I couldn't draw the data flow at a
+                            Container and Component level, I didn't actually understand my own system.
+                            <br><br>
+                            Testing & Resilience: I moved away from just testing "happy paths." I spent a lot of time writing unit tests in JUnit
+                            and Mockito to handle what happens when a service goes down. I used Docker Compose to manage the environment, ensuring
+                            that my PostgreSQL and Redis instances were always configured correctly across dev and prod.
+                            </p>
+                        </div>
+            
+                        <div class="decision-section">
+                            <h4>Takeaway</h4>
+                            <p>The biggest thing I learned? Microservices are a double-edged sword. They give you amazing flexibility, but they "tax"
+                            you with complexity in service discovery and data consistency. Navigating that tax made me a much better developer. I
+                            stopped just writing code and started thinking about how systems survive in the real world.</p>
+                        </div>
+            
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="toggleProject(this)">
+                <div class="project-header">
+                    <div>
                         <h3 class="project-title">Automated Financial Data Pipeline</h3>
                         <p class="project-summary">Full-stack system to automatically collect, process, and deliver
                             personalized financial updates via backend automation and a lightweight React web interface.
@@ -794,10 +875,72 @@
         </div>
     </section>
 
+    <!-- Architecture Modal -->
+    <div id="architectureModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeArchitectureModal()">&times;</span>
+            <h2>Architecture Diagrams</h2>
+            <p style="color: #a1a1aa; font-size: 0.9rem; margin-bottom: 1.5rem;">Click on any diagram to expand</p>
+            <div class="modal-diagrams">
+                <div class="diagram-container">
+                    <h3>System Context Diagram</h3>
+                    <img src="system_context_diagram.jpg" alt="System Context Diagram" class="architecture-image clickable-diagram" onclick="expandDiagram(this)">
+                </div>
+                <div class="diagram-container">
+                    <h3>Container Diagram</h3>
+                    <img src="container_diagram.jpg" alt="Container Diagram" class="architecture-image clickable-diagram" onclick="expandDiagram(this)">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expanded Diagram Modal -->
+    <div id="expandedDiagramModal" class="expanded-modal" onclick="closeExpandedDiagram(event)">
+        <div class="expanded-modal-content">
+            <span class="modal-close" onclick="closeExpandedDiagram()">&times;</span>
+            <img id="expandedImage" src="" alt="Expanded Diagram" class="expanded-diagram-image">
+        </div>
+    </div>
+
     <script>
         function toggleProject(card) {
             card.classList.toggle('expanded');
         }
+        
+        function viewArchitecture(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            const modal = document.getElementById('architectureModal');
+            modal.classList.add('active');
+        }
+        
+        function closeArchitectureModal() {
+            const modal = document.getElementById('architectureModal');
+            modal.classList.remove('active');
+        }
+        
+        function expandDiagram(imgElement) {
+            const expandedModal = document.getElementById('expandedDiagramModal');
+            const expandedImage = document.getElementById('expandedImage');
+            expandedImage.src = imgElement.src;
+            expandedImage.alt = imgElement.alt;
+            expandedModal.classList.add('active');
+        }
+        
+        function closeExpandedDiagram(event) {
+            if (event && event.target.id !== 'expandedDiagramModal') {
+                return;
+            }
+            const expandedModal = document.getElementById('expandedDiagramModal');
+            expandedModal.classList.remove('active');
+        }
+        window.onclick = function(event) {
+            const modal = document.getElementById('architectureModal');
+            if (event.target === modal) {
+                closeArchitectureModal();
+            }
+        }
+        
         function showExperience(index) {
             // Get all timeline items and nav items
             const timelineItems = document.querySelectorAll('.timeline-item');
