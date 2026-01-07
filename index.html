@@ -228,35 +228,32 @@
                             </div>
                             <br>
                             <p>
-                                Most of my previous projects were about building features. This project was different—it was about building a system. I
-                                wanted to move past monolithic architecture and actually deal with the "distributed systems" problems I’d been reading
-                                about. I built a platform to track NBA player stats and predict future performance, but the real challenge was how these
+                                Most of my previous projects were about building features. This project was about building a system from the ground up. I
+                                wanted to move past monolithic architecture and actually make decisions regarding perfomance tradeoffs and system design. I built a platform to track NBA player stats and predict future performance, but the real challenge was how these
                                 services talked to each other.
                             </p>
                             <h4>The "Why" Behind the Tech</h4>
                             <p>I went with a Polyglot Architecture because I wanted the right tool for the job, not just the tool I knew best. I used
-                            Java (Spring Boot) for the Security and Stats services because I wanted that strict type-safety for core business logic.
+                            Java (Spring Boot) for the Security and Stats services because Spring boot is the de facto for microservices. Also, tools like Netflix Eureka, Spring Cloud were very helpful for service discovery, load balancing, and fault tolerance. 
                             But for the nba-fetcher and prediction services, I used Python. Trying to do data science or heavy API scraping in Java
                             felt like fighting the language, while Python’s ecosystem made it seamless.
                             <br><br>
                             One of the biggest trade-offs I made was implementing gRPC for internal communication between my Security and Stats
                             services. I could have used standard REST, but I wanted to practice low-latency communication. Using Protobufs felt like
-                            a win because it forced me to define a strict "contract" between services—no more guessing what an API response looks
+                            a win because it forced me to define a strict contract between services, instead of  guessing what an API response looks
                             like.</p>
                         </div>
             
                         <div class="decision-section">
                             <h4>Engineering Maturity & Habits</h4>
-                            <p>When you have five services running at once, you can’t just "keep it all in your head."
+                            <p>When you have five services running at once, you can’t just keep it all in your head.
                             
-                            Documentation as a Tool: I started using ADRs (Architectural Decision Records). Every time I hit a fork in the road—like
-                            choosing Redis Pub/Sub to decouple my watchlist updates—I wrote down why. It saved me weeks of "Why did I do this
-                            again?"
+                            Documentation as a Tool: I started using ADRs (Architectural Decision Records). For example, I documented why I chose Redis Pub/Sub as the event bus for my AI Agent. I wrote down the consequences of that decision (services are decoupled), and the tradeoffs (No message persistence).
                             <br><br>
                             Visualizing Complexity: I adopted the C4 Model for my diagrams. I realized that if I couldn't draw the data flow at a
                             Container and Component level, I didn't actually understand my own system.
                             <br><br>
-                            Testing & Resilience: I moved away from just testing "happy paths." I spent a lot of time writing unit tests in JUnit
+                            Testing & Resilience: I moved away from just testing happy paths. I spent a lot of time writing unit tests in JUnit
                             and Mockito to handle what happens when a service goes down. I used Docker Compose to manage the environment, ensuring
                             that my PostgreSQL and Redis instances were always configured correctly across dev and prod.
                             </p>
@@ -264,7 +261,7 @@
             
                         <div class="decision-section">
                             <h4>Takeaway</h4>
-                            <p>The biggest thing I learned? Microservices are a double-edged sword. They give you amazing flexibility, but they "tax"
+                            <p>Microservices are a double-edged sword. They give you amazing flexibility, but they tax
                             you with complexity in service discovery and data consistency. Navigating that tax made me a much better developer. I
                             stopped just writing code and started thinking about how systems survive in the real world.</p>
                         </div>
@@ -312,7 +309,7 @@
                                 complexity. Django felt too heavy for a focused API service. FastAPI's automatic OpenAPI
                                 documentation and Pydantic integration meant I could enforce data contracts at
                                 compile-time
-                                rather than discovering issues at runtime—critical when handling financial data where
+                                rather than discovering issues at runtime. This was important when handling financial data where
                                 type
                                 safety matters.</p>
                         </div>
@@ -338,7 +335,7 @@
                                 for another database (or add caching) by only touching the repository layer. The Service
                                 layer handles password hashing and ETL orchestration without knowing how User objects
                                 are
-                                stored. This separation also made testing easier—I could mock repositories without
+                                stored. This separation also made testing easier, since I could mock repositories without
                                 spinning
                                 up a database.</p>
                         </div>
@@ -348,11 +345,10 @@
                             <p>The ETL pipeline needed to fetch quotes and profiles for potentially dozens of tickers.
                                 Running these sequentially would have caused unacceptable latency. Using
                                 <code>asyncio.gather</code> let me fire all requests concurrently, cutting execution
-                                time by
-                                80%. I used <code>asyncio.to_thread</code> for the Finnhub SDK (which is synchronous) to
-                                prevent blocking FastAPI's event loop—a mistake I made in early iterations that caused
+                                time by. I used <code>asyncio.to_thread</code> for the Finnhub SDK (which is synchronous) to
+                                prevent blocking FastAPI's event loop (a mistake I made in early iterations that caused
                                 the
-                                entire API to hang during data fetches.
+                                entire API to hang during data fetches)
                             </p>
                         </div>
                     </div>
@@ -387,7 +383,7 @@
                         <div class="decision-section">
                             <h4>Why Build Redis After a Financial Pipeline?</h4>
                             <p>After building the financial pipeline, I realized I was abstracting away critical
-                                infrastructure—I understood FastAPI and PostgreSQL at a high level, but didn't truly
+                                infrastructure. I understood FastAPI and PostgreSQL at a high level, but didn't truly
                                 grasp
                                 how databases handle concurrent writes or how replication actually works. Building Redis
                                 forced me to reason about locking primitives, network protocols, and data persistence
@@ -409,7 +405,7 @@
                                 learning exercise, managing <code>threading.Lock</code> and
                                 <code>threading.Condition</code>
                                 gave me hands-on experience with race conditions and deadlocks. I hit both problems
-                                early—clients would hang during BLPOP, and concurrent ZADD operations would corrupt data
+                                early: clients would hang during BLPOP, and concurrent ZADD operations would corrupt data
                                 until I fixed my locking strategy.
                             </p>
                         </div>
@@ -421,7 +417,7 @@
                                 empty, then wake immediately when data arrived. My first attempt used a polling loop
                                 (checking every 100ms), which was wasteful and had high latency. The correct solution
                                 was
-                                <code>threading.Condition</code>—threads wait on a condition variable, and RPUSH
+                                <code>threading.Condition</code>, where threads wait on a condition variable, and RPUSH
                                 broadcasts
                                 a notification. This pattern taught me why condition variables exist and how databases
                                 handle blocked queries without burning CPU.
@@ -436,7 +432,7 @@
                                 PSYNC
                                 for incremental updates, and track replica acknowledgments for WAIT commands. The
                                 hardest
-                                bug was a deadlock in WAIT—I was holding a data lock while waiting for replica
+                                bug was a deadlock in WAIT. I was holding a data lock while waiting for replica
                                 responses,
                                 blocking all other operations. The fix required releasing locks before network I/O,
                                 which is
@@ -476,9 +472,9 @@
                             <p>Most backend engineers interact with databases through ORMs, which is fine for OLTP
                                 workloads
                                 but fails for analytics. I built this project to understand how data warehouses differ
-                                fundamentally from transactional databases—different query patterns (aggregations vs
+                                fundamentally from transactional databases. Different query patterns (aggregations vs
                                 point
-                                lookups), different schemas (star schema vs normalized), and different optimization
+                                lookups), Different schemas (star schema vs normalized), and Different optimization
                                 strategies (columnar storage, materialized views). This knowledge directly applies when
                                 designing APIs that need to serve analytical queries efficiently.</p>
                         </div>
@@ -490,10 +486,7 @@
                                 star schema because it provides clear boundaries for data quality improvements. Bronze
                                 preserves raw source data (critical for auditing), Silver handles cleansing without
                                 business
-                                logic creep, and Gold serves analytics without impacting transformation pipelines. This
-                                separation mirrors the layered architecture I used in the FastAPI project—each layer has
-                                a
-                                single responsibility. When data quality issues emerged in the Silver layer, I could fix
+                                logic creep, and Gold serves analytics without impacting transformation pipelines. When data quality issues emerged in the Silver layer, I could fix
                                 them without re-ingesting from source or breaking Gold-layer reports.</p>
                         </div>
 
@@ -536,7 +529,7 @@
                         <div class="decision-section">
                             <h4>React Over Raw HTML/CSS or Other Frameworks</h4>
                             <p>I evaluated three options: vanilla HTML/CSS/JS, React, and Vue. Raw HTML would have meant
-                                duplicating navigation/footer markup across pages and manually managing DOM updates for
+                                duplicating features and components across the page and manually managing DOM updates for
                                 the
                                 appointment form. Vue was tempting for its simplicity, but React's ecosystem (more
                                 libraries, better TypeScript support, larger community) made it the pragmatic choice.
@@ -637,7 +630,7 @@
                                     expanded
                                     it into a React-based dashboard so that any member could input a channel ID and
                                     instantly retrieve insights like
-                                    top-performing videos, tag frequency, and engagement patterns—no coding required.
+                                    top-performing videos, tag frequency, and engagement patterns with no coding required.
                                 </p>
     
                                 <h5>YATÉ Spotify Drink Recommendation App</h5>
@@ -668,7 +661,7 @@
                                 <p>I chose wealth management because of the finance component of my Computer Science and
                                     Business Administration
                                     degree.
-                                    I wanted to see how financial advising actually works in practice — how markets
+                                    I wanted to see how financial advising actually works in practice. I learned about how markets
                                     move, how clients think, and how
                                     data shapes real investment decisions.</p>
     
@@ -693,9 +686,7 @@
     
                                 <p>At the bank, the engineers build the platforms that traders and advisors rely on
                                     every day.
-                                    And that’s where I found my direction:
-                                    supporting the people making financial decisions by engineering the tools they
-                                    depend on.</p>
+                                    And that’s where I found my next role as a software engineer at the bank. </p>
                             </div>
     
                         </div>
@@ -717,9 +708,7 @@
                                     scale and
                                     rigor of the engineering environment around me.</p>
     
-                                <p>A core part of my role was ensuring <b>accessibility compliance</b> — not just
-                                    automated checks, but detailed
-                                    manual testing.
+                                <p>A core part of my role was ensuring <b>accessibility compliance</b>.
                                     This meant verifying keyboard navigation flows, evaluating screen reader behavior,
                                     and making sure the platform
                                     supported
@@ -737,7 +726,7 @@
                                 </ul>
     
                                 <p>But the most impactful realization was that I was increasingly drawn to what sits
-                                    <i>behind</i> the interface —
+                                    <i>behind</i> the interface: 
                                     the systems, architecture, data flow, and logic that allow these platforms to
                                     operate reliably at scale.
                                 </p>
@@ -786,14 +775,14 @@
     
                                 <p>So my task became clear: <b>design a clean, friendly, and easy-to-use website that
                                         allows patients to book
-                                        appointments online and view accurate clinic information — without requiring the
+                                        appointments online and view accurate clinic information without requiring the
                                         staff to regularly maintain
                                         it.</b></p>
     
                                 <p>Through this project, I learned React.js, Firebase, EmailJS, version control, Figma,
                                     and how to translate
                                     real-world business constraints into product decisions. It was also my first deep
-                                    dive into frontend design —
+                                    dive into frontend design, which was
                                     rewarding, but it helped me realize that I’m more energized by logic, data flow, and
                                     system architecture than
                                     visual styling alone.</p>
