@@ -6,7 +6,12 @@
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
     sans-serif;
   line-height: 1.6;
   color: #e4e4e7;
@@ -367,6 +372,101 @@ body {
   overflow: hidden;
 }
 
+.project-card.redis-featured {
+  padding: 0;
+  overflow: visible;
+}
+
+.project-content-wrapper {
+  display: flex;
+  gap: 0;
+  min-height: 280px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.project-left-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.project-video-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 16px 16px 0;
+  border: 1px solid #27272a;
+  border-left: none;
+  transition: all 0.3s ease;
+}
+
+.project-video-container:hover {
+  border-color: #3b82f6;
+  box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.project-preview-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.youtube-badge {
+  display: none;
+}
+
+.redis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .project-content-wrapper {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .project-video-container {
+    border-radius: 0 0 16px 16px;
+    border-left: 1px solid #27272a;
+    border-top: none;
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-left-content {
+    padding: 1.5rem;
+  }
+
+  .project-video-container {
+    min-height: 250px;
+  }
+
+  .youtube-badge {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
 .project-card::before {
   content: "";
   position: absolute;
@@ -387,6 +487,19 @@ body {
 
 .project-card:hover::before {
   transform: scaleX(1);
+}
+
+.project-card.redis-featured:hover {
+  transform: none;
+  border-color: #3b82f6;
+}
+
+.project-card.redis-featured:hover::before {
+  transform: scaleX(1);
+}
+
+.project-card.redis-featured:hover .project-content-wrapper {
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.15);
 }
 
 .project-header {
@@ -645,10 +758,17 @@ body {
   max-height: 3000px;
 }
 
+.project-card.redis-featured .project-details {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid #27272a;
+  border-top: none;
+  border-radius: 0 0 16px 16px;
+}
+
 .details-content {
-  padding-top: 1.5rem;
+  padding: 2rem;
   border-top: 1px solid #27272a;
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .decision-section {

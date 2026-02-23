@@ -196,7 +196,9 @@
                 <div class="project-header">
                     <div>
                         <h3 class="project-title">Basketball Microservices Project</h3>
-                        <p class="project-summary">A deep dive into distributed systems, polyglot architecture, and the trade-offs of modern software engineering through building a basketball statistics platform using microservices.</p>
+                        <p class="project-summary">A deep dive into distributed systems, polyglot architecture, and the
+                            trade-offs of modern software engineering through building a basketball statistics platform
+                            using microservices.</p>
                     </div>
                     <span class="expand-icon">↓</span>
                 </div>
@@ -220,52 +222,73 @@
                     <div class="details-content">
                         <div class="decision-section">
                             <div class="project-links">
-                                <h4><a href="https://github.com/rushilshah11/basketball-microservices-project" target="_blank"
-                                        rel="noopener noreferrer" class="github-repo-link">
+                                <h4><a href="https://github.com/rushilshah11/basketball-microservices-project"
+                                        target="_blank" rel="noopener noreferrer" class="github-repo-link">
                                         View README on GitHub →
                                     </a></h4>
-                                <button class="architecture-btn" onclick="viewArchitecture(event)">View Architecture</button>
+                                <button class="architecture-btn" onclick="viewArchitecture(event)">View
+                                    Architecture</button>
                             </div>
                             <br>
                             <p>
-                                Most of my previous projects were about building features. This project was about building a system from the ground up. I
-                                wanted to move past monolithic architecture and actually make decisions regarding perfomance tradeoffs and system design. I built a platform to track NBA player stats and predict future performance, but the real challenge was how these
+                                Most of my previous projects were about building features. This project was about
+                                building a system from the ground up. I
+                                wanted to move past monolithic architecture and actually make decisions regarding
+                                perfomance tradeoffs and system design. I built a platform to track NBA player stats and
+                                predict future performance, but the real challenge was how these
                                 services talked to each other.
                             </p>
                             <h4>The "Why" Behind the Tech</h4>
-                            <p>I went with a Polyglot Architecture because I wanted the right tool for the job, not just the tool I knew best. I used
-                            Java (Spring Boot) for the Security and Stats services because Spring boot is the de facto for microservices. Also, tools like Netflix Eureka, Spring Cloud were very helpful for service discovery, load balancing, and fault tolerance. 
-                            But for the nba-fetcher and prediction services, I used Python. Trying to do data science or heavy API scraping in Java
-                            felt like fighting the language, while Python’s ecosystem made it seamless.
-                            <br><br>
-                            One of the biggest trade-offs I made was implementing gRPC for internal communication between my Security and Stats
-                            services. I could have used standard REST, but I wanted to practice low-latency communication. Using Protobufs felt like
-                            a win because it forced me to define a strict contract between services, instead of  guessing what an API response looks
-                            like.</p>
+                            <p>I went with a Polyglot Architecture because I wanted the right tool for the job, not just
+                                the tool I knew best. I used
+                                Java (Spring Boot) for the Security and Stats services because Spring boot is the de
+                                facto for microservices. Also, tools like Netflix Eureka, Spring Cloud were very helpful
+                                for service discovery, load balancing, and fault tolerance.
+                                But for the nba-fetcher and prediction services, I used Python. Trying to do data
+                                science or heavy API scraping in Java
+                                felt like fighting the language, while Python’s ecosystem made it seamless.
+                                <br><br>
+                                One of the biggest trade-offs I made was implementing gRPC for internal communication
+                                between my Security and Stats
+                                services. I could have used standard REST, but I wanted to practice low-latency
+                                communication. Using Protobufs felt like
+                                a win because it forced me to define a strict contract between services, instead of
+                                guessing what an API response looks
+                                like.
+                            </p>
                         </div>
-            
+
                         <div class="decision-section">
                             <h4>Engineering Maturity & Habits</h4>
                             <p>When you have five services running at once, you can’t just keep it all in your head.
-                            
-                            Documentation as a Tool: I started using ADRs (Architectural Decision Records). For example, I documented why I chose Redis Pub/Sub as the event bus for my AI Agent. I wrote down the consequences of that decision (services are decoupled), and the tradeoffs (No message persistence).
-                            <br><br>
-                            Visualizing Complexity: I adopted the C4 Model for my diagrams. I realized that if I couldn't draw the data flow at a
-                            Container and Component level, I didn't actually understand my own system.
-                            <br><br>
-                            Testing & Resilience: I moved away from just testing happy paths. I spent a lot of time writing unit tests in JUnit
-                            and Mockito to handle what happens when a service goes down. I used Docker Compose to manage the environment, ensuring
-                            that my PostgreSQL and Redis instances were always configured correctly across dev and prod.
+
+                                Documentation as a Tool: I started using ADRs (Architectural Decision Records). For
+                                example, I documented why I chose Redis Pub/Sub as the event bus for my AI Agent. I
+                                wrote down the consequences of that decision (services are decoupled), and the tradeoffs
+                                (No message persistence).
+                                <br><br>
+                                Visualizing Complexity: I adopted the C4 Model for my diagrams. I realized that if I
+                                couldn't draw the data flow at a
+                                Container and Component level, I didn't actually understand my own system.
+                                <br><br>
+                                Testing & Resilience: I moved away from just testing happy paths. I spent a lot of time
+                                writing unit tests in JUnit
+                                and Mockito to handle what happens when a service goes down. I used Docker Compose to
+                                manage the environment, ensuring
+                                that my PostgreSQL and Redis instances were always configured correctly across dev and
+                                prod.
                             </p>
                         </div>
-            
+
                         <div class="decision-section">
                             <h4>Takeaway</h4>
                             <p>Microservices are a double-edged sword. They give you amazing flexibility, but they tax
-                            you with complexity in service discovery and data consistency. Navigating that tax made me a much better developer. I
-                            stopped just writing code and started thinking about how systems survive in the real world.</p>
+                                you with complexity in service discovery and data consistency. Navigating that tax made
+                                me a much better developer. I
+                                stopped just writing code and started thinking about how systems survive in the real
+                                world.</p>
                         </div>
-            
+
                     </div>
                 </div>
             </div>
@@ -309,7 +332,8 @@
                                 complexity. Django felt too heavy for a focused API service. FastAPI's automatic OpenAPI
                                 documentation and Pydantic integration meant I could enforce data contracts at
                                 compile-time
-                                rather than discovering issues at runtime. This was important when handling financial data where
+                                rather than discovering issues at runtime. This was important when handling financial
+                                data where
                                 type
                                 safety matters.</p>
                         </div>
@@ -335,7 +359,8 @@
                                 for another database (or add caching) by only touching the repository layer. The Service
                                 layer handles password hashing and ETL orchestration without knowing how User objects
                                 are
-                                stored. This separation also made testing easier, since I could mock repositories without
+                                stored. This separation also made testing easier, since I could mock repositories
+                                without
                                 spinning
                                 up a database.</p>
                         </div>
@@ -345,7 +370,8 @@
                             <p>The ETL pipeline needed to fetch quotes and profiles for potentially dozens of tickers.
                                 Running these sequentially would have caused unacceptable latency. Using
                                 <code>asyncio.gather</code> let me fire all requests concurrently, cutting execution
-                                time by. I used <code>asyncio.to_thread</code> for the Finnhub SDK (which is synchronous) to
+                                time by. I used <code>asyncio.to_thread</code> for the Finnhub SDK (which is
+                                synchronous) to
                                 prevent blocking FastAPI's event loop (a mistake I made in early iterations that caused
                                 the
                                 entire API to hang during data fetches)
@@ -355,23 +381,39 @@
                 </div>
             </div>
 
-            <div class="project-card" onclick="toggleProject(this)">
-                <div class="project-header">
-                    <div>
-                        <h3 class="project-title">Python Redis From Scratch</h3>
-                        <p class="project-summary">A high-fidelity implementation of a Redis server in Python, featuring
-                            a multi-threaded, non-blocking architecture adhering to the Redis Serialization Protocol
-                            (RESP).</p>
+            <div class="project-card redis-featured" onclick="toggleProject(this)">
+                <div class="project-content-wrapper">
+                    <div class="project-left-content">
+                        <div class="project-header redis-header">
+                            <div>
+                                <h3 class="project-title">Python Redis From Scratch</h3>
+                                <p class="project-summary">A high-fidelity implementation of a Redis server in Python,
+                                    featuring
+                                    a multi-threaded, non-blocking architecture adhering to the Redis Serialization
+                                    Protocol
+                                    (RESP).</p>
+                            </div>
+                            <span class="expand-icon">↓</span>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Multi-threading</span>
+                            <span class="tech-tag">Socket Programming</span>
+                            <span class="tech-tag">RESP</span>
+                            <span class="tech-tag">Geo-Spatial</span>
+                            <span class="tech-tag">Replication</span>
+                        </div>
                     </div>
-                    <span class="expand-icon">↓</span>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Multi-threading</span>
-                    <span class="tech-tag">Socket Programming</span>
-                    <span class="tech-tag">RESP</span>
-                    <span class="tech-tag">Geo-Spatial</span>
-                    <span class="tech-tag">Replication</span>
+                    <div class="project-video-container">
+                        <video class="project-preview-video" autoplay muted loop>
+                            <source src="Redis Preview.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <a href="https://youtu.be/LGukNAYP9YY" target="_blank" rel="noopener noreferrer"
+                            class="video-overlay">
+                            <span class="youtube-badge">▶ Watch on YouTube</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="project-details">
                     <div class="details-content">
@@ -405,7 +447,8 @@
                                 learning exercise, managing <code>threading.Lock</code> and
                                 <code>threading.Condition</code>
                                 gave me hands-on experience with race conditions and deadlocks. I hit both problems
-                                early: clients would hang during BLPOP, and concurrent ZADD operations would corrupt data
+                                early: clients would hang during BLPOP, and concurrent ZADD operations would corrupt
+                                data
                                 until I fixed my locking strategy.
                             </p>
                         </div>
@@ -486,7 +529,8 @@
                                 star schema because it provides clear boundaries for data quality improvements. Bronze
                                 preserves raw source data (critical for auditing), Silver handles cleansing without
                                 business
-                                logic creep, and Gold serves analytics without impacting transformation pipelines. When data quality issues emerged in the Silver layer, I could fix
+                                logic creep, and Gold serves analytics without impacting transformation pipelines. When
+                                data quality issues emerged in the Silver layer, I could fix
                                 them without re-ingesting from source or breaking Gold-layer reports.</p>
                         </div>
 
@@ -529,7 +573,8 @@
                         <div class="decision-section">
                             <h4>React Over Raw HTML/CSS or Other Frameworks</h4>
                             <p>I evaluated three options: vanilla HTML/CSS/JS, React, and Vue. Raw HTML would have meant
-                                duplicating features and components across the page and manually managing DOM updates for
+                                duplicating features and components across the page and manually managing DOM updates
+                                for
                                 the
                                 appointment form. Vue was tempting for its simplicity, but React's ecosystem (more
                                 libraries, better TypeScript support, larger community) made it the pragmatic choice.
@@ -590,7 +635,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="timeline-content-wrapper">
                     <div class="timeline-item active" data-index="0">
                         <div class="experience-card timeline-content">
@@ -600,11 +645,11 @@
                             <div class="experience-roadmap-entry">
                                 <h4>Full Time Software Engineer</h4>
                                 <p>Incoming Software Engineer</p>
-                                
+
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="timeline-item" data-index="1">
                         <div class="experience-card timeline-content">
                             <h3>Director of Technology</h3>
@@ -612,7 +657,7 @@
                             <div class="date">Sep 2022 - May 2025</div>
                             <div class="experience-roadmap-entry">
                                 <h4>Leadership Experience</h4>
-    
+
                                 <p>I joined Trojan Marketing Group my first year at USC to bridge my interests in
                                     technology and business.
                                     TMG works with four clients each year, spending one semester developing data-driven
@@ -620,7 +665,7 @@
                                     executing the campaign. As I grew from Technologist to Director of Technology, I
                                     focused on building tools
                                     that made our strategic and creative decisions smarter.</p>
-    
+
                                 <h5>YouTube Brand Analysis Dashboard</h5>
                                 <p>While working with Mailmodo, I noticed our team needed better insights from YouTube
                                     analytics. I built an
@@ -630,16 +675,17 @@
                                     expanded
                                     it into a React-based dashboard so that any member could input a channel ID and
                                     instantly retrieve insights like
-                                    top-performing videos, tag frequency, and engagement patterns with no coding required.
+                                    top-performing videos, tag frequency, and engagement patterns with no coding
+                                    required.
                                 </p>
-    
+
                                 <h5>YATÉ Spotify Drink Recommendation App</h5>
                                 <p>For YATÉ, a beverage brand with strong musical roots, I helped develop a full-stack
                                     web app that let users log in
                                     through Spotify. We analyzed their listening data to recommend personalized drink
                                     pairings during on-campus
                                     tastings, creating an interactive and memorable brand experience.</p>
-    
+
                                 <p>These projects showed me how much I enjoy building technology that directly
                                     influences marketing strategy and
                                     audience engagement. They weren’t just side projects. They were technical
@@ -647,10 +693,10 @@
                                     insight.
                                 </p>
                             </div>
-    
+
                         </div>
                     </div>
-    
+
                     <div class="timeline-item" data-index="2">
                         <div class="experience-card timeline-content">
                             <h3>Merrill Lynch Wealth Management Intern</h3>
@@ -661,10 +707,11 @@
                                 <p>I chose wealth management because of the finance component of my Computer Science and
                                     Business Administration
                                     degree.
-                                    I wanted to see how financial advising actually works in practice. I learned about how markets
+                                    I wanted to see how financial advising actually works in practice. I learned about
+                                    how markets
                                     move, how clients think, and how
                                     data shapes real investment decisions.</p>
-    
+
                                 <p>Wealth management is extremely dynamic. Markets shift, clients shift, and strategies
                                     must adjust constantly.
                                     During my time there, I worked on:</p>
@@ -674,24 +721,24 @@
                                         support financial planning
                                     </li>
                                 </ul>
-    
+
                                 <p>What I enjoyed was seeing how technology and data directly influence decisions that
                                     impact people’s financial
                                     lives.
                                     But I also realized something important about myself:
                                     I didn’t resonate with the client-facing side of the role.</p>
-    
+
                                 <p>I didn’t want to be the person presenting insights.
                                     I wanted to be the one building the systems that generate those insights.</p>
-    
+
                                 <p>At the bank, the engineers build the platforms that traders and advisors rely on
                                     every day.
                                     And that’s where I found my next role as a software engineer at the bank. </p>
                             </div>
-    
+
                         </div>
                     </div>
-    
+
                     <div class="timeline-item" data-index="3">
                         <div class="experience-card timeline-content">
                             <h3>Web Development APX Intern</h3>
@@ -699,7 +746,7 @@
                             <div class="date">Sep 2023 - May 2024</div>
                             <div class="experience-roadmap-entry">
                                 <h4>CMS & User-Centric Design</h4>
-    
+
                                 <p>At NASA JPL, I worked on the NASA Web Mod initiative to migrate the existing
                                     science.nasa.gov website into a new
                                     CMS.
@@ -707,7 +754,7 @@
                                     immediately feeling the
                                     scale and
                                     rigor of the engineering environment around me.</p>
-    
+
                                 <p>A core part of my role was ensuring <b>accessibility compliance</b>.
                                     This meant verifying keyboard navigation flows, evaluating screen reader behavior,
                                     and making sure the platform
@@ -715,32 +762,32 @@
                                     users with different abilities. It was slow, methodical, and required a level of
                                     precision I hadn’t experienced
                                     before.</p>
-    
+
                                 <p>During this time, I gained exposure to:</p>
-    
+
                                 <ul>
                                     <li>Structured engineering workflows</li>
                                     <li>GitHub issue tracking & pipelines</li>
                                     <li>Code review discussions and standards</li>
                                     <li>Designing with the user experience always in mind</li>
                                 </ul>
-    
+
                                 <p>But the most impactful realization was that I was increasingly drawn to what sits
-                                    <i>behind</i> the interface: 
+                                    <i>behind</i> the interface:
                                     the systems, architecture, data flow, and logic that allow these platforms to
                                     operate reliably at scale.
                                 </p>
-    
+
                                 <p>This experience is where I recognized that I want to grow further into <b>backend
                                         engineering</b>, working with
                                     systems,
                                     APIs, and architecture rather than solely focusing on the front-facing product
                                     surface.</p>
                             </div>
-    
+
                         </div>
                     </div>
-    
+
                     <div class="timeline-item" data-index="4">
                         <div class="experience-card timeline-content">
                             <h3>Software Engineering Intern</h3>
@@ -748,37 +795,37 @@
                             <div class="date">Mar 2023 - May 2023</div>
                             <div class="experience-roadmap-entry">
                                 <h4>First Website</h4>
-    
+
                                 <p>Sunkist Dental was my first real introduction to web development with real users in
                                     mind. Before writing any
                                     code, I spent time understanding the clinic’s patient base. Most patients were older
                                     adults who preferred
                                     calling the front desk to schedule appointments, which highlighted the first major
                                     pain point:</p>
-    
+
                                 <ul>
                                     <li><b>Pain Point #1:</b> How to make online booking intuitive and comfortable for a
                                         less tech-savvy audience.
                                     </li>
                                 </ul>
-    
+
                                 <p>The second issue was information inconsistency. Because the clinic was small,
                                     business hours and service details
                                     weren’t regularly updated on Google or Apple Maps. Patients often had to call just
                                     to confirm basic information.
                                 </p>
-    
+
                                 <ul>
                                     <li><b>Pain Point #2:</b> Provide one central hub with up-to-date, reliable clinic
                                         information.</li>
                                 </ul>
-    
+
                                 <p>So my task became clear: <b>design a clean, friendly, and easy-to-use website that
                                         allows patients to book
                                         appointments online and view accurate clinic information without requiring the
                                         staff to regularly maintain
                                         it.</b></p>
-    
+
                                 <p>Through this project, I learned React.js, Firebase, EmailJS, version control, Figma,
                                     and how to translate
                                     real-world business constraints into product decisions. It was also my first deep
@@ -786,16 +833,16 @@
                                     rewarding, but it helped me realize that I’m more energized by logic, data flow, and
                                     system architecture than
                                     visual styling alone.</p>
-    
+
                                 <p><b>Measurable Impact:</b> The online booking system reduced front desk workload by
                                     <b>~20%</b> and contributed to
                                     <b>50+ new patient appointments</b>, proving to me how software can directly improve
                                     operations and revenue.
                                 </p>
-    
+
                                 <p><i>View this website in the Projects section.</i></p>
                             </div>
-    
+
                         </div>
                     </div>
                 </div>
@@ -874,11 +921,13 @@
             <div class="modal-diagrams">
                 <div class="diagram-container">
                     <h3>System Context Diagram</h3>
-                    <img src="system_context_diagram.jpg" alt="System Context Diagram" class="architecture-image clickable-diagram" onclick="expandDiagram(this)">
+                    <img src="system_context_diagram.jpg" alt="System Context Diagram"
+                        class="architecture-image clickable-diagram" onclick="expandDiagram(this)">
                 </div>
                 <div class="diagram-container">
                     <h3>Container Diagram</h3>
-                    <img src="container_diagram.jpg" alt="Container Diagram" class="architecture-image clickable-diagram" onclick="expandDiagram(this)">
+                    <img src="container_diagram.jpg" alt="Container Diagram"
+                        class="architecture-image clickable-diagram" onclick="expandDiagram(this)">
                 </div>
             </div>
         </div>
@@ -896,19 +945,19 @@
         function toggleProject(card) {
             card.classList.toggle('expanded');
         }
-        
+
         function viewArchitecture(event) {
             event.preventDefault();
             event.stopPropagation();
             const modal = document.getElementById('architectureModal');
             modal.classList.add('active');
         }
-        
+
         function closeArchitectureModal() {
             const modal = document.getElementById('architectureModal');
             modal.classList.remove('active');
         }
-        
+
         function expandDiagram(imgElement) {
             const expandedModal = document.getElementById('expandedDiagramModal');
             const expandedImage = document.getElementById('expandedImage');
@@ -916,7 +965,7 @@
             expandedImage.alt = imgElement.alt;
             expandedModal.classList.add('active');
         }
-        
+
         function closeExpandedDiagram(event) {
             if (event && event.target.id !== 'expandedDiagramModal') {
                 return;
@@ -924,13 +973,13 @@
             const expandedModal = document.getElementById('expandedDiagramModal');
             expandedModal.classList.remove('active');
         }
-        window.onclick = function(event) {
+        window.onclick = function (event) {
             const modal = document.getElementById('architectureModal');
             if (event.target === modal) {
                 closeArchitectureModal();
             }
         }
-        
+
         function showExperience(index) {
             // Get all timeline items and nav items
             const timelineItems = document.querySelectorAll('.timeline-item');
