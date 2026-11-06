@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
   <link rel="preload" href="fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="index.css?v=2">
 </head>
+
 <body>
   <main class="page">
 
@@ -42,20 +44,22 @@
           <li><span class="when">Now</span><span>Bank of America, swe II, digital assets</span></li>
           <li><span class="when">2025</span><span>Bank of America, swe I, market risk</span></li>
           <li><span class="when">2024</span><span>Merrill Lynch, wealth management intern</span></li>
-          <li><span class="when">2024</span><span><a href="https://www.trojanmarketinggroup.org/" target="_blank" rel="noopener">Trojan Marketing Group</a>, director of technology</span></li>
-          <li><span class="when">2023</span><span><a href="https://science.nasa.gov/" target="_blank" rel="noopener">NASA JPL</a>, web development intern</span></li>
+          <li><span class="when">2024</span><span><a href="https://www.trojanmarketinggroup.org/" target="_blank"
+                rel="noopener">Trojan Marketing Group</a>, director of technology</span></li>
+          <li><span class="when">2023</span><span><a href="https://science.nasa.gov/" target="_blank"
+                rel="noopener">NASA JPL</a>, web development intern</span></li>
         </ul>
       </section>
 
       <section class="row">
         <h2 class="label">Projects</h2>
         <div class="content projects-wrap">
-        <ul class="projects inline">
-          <li class="project is-active" tabindex="0" data-project="commish">On-Chain Commish</li>
-          <li class="project" tabindex="0" data-project="fantasy">Fantasy Basketball AI</li>
-          <li class="project" tabindex="0" data-project="redis">Redis, in Python</li>
-          <li class="project" tabindex="0" data-project="sunkist">Sunkist Dental</li>
-        </ul>
+          <ul class="projects inline">
+            <li class="project is-active" tabindex="0" data-project="commish">On-Chain Commish</li>
+            <li class="project" tabindex="0" data-project="fantasy">Fantasy Basketball AI</li>
+            <li class="project" tabindex="0" data-project="redis">Redis, in Python</li>
+            <li class="project" tabindex="0" data-project="sunkist">Sunkist Dental</li>
+          </ul>
           <div class="mobile-slot"></div>
         </div>
       </section>
@@ -83,13 +87,14 @@
     <!-- One preview panel; hovering or tapping a project swaps what it shows -->
     <aside class="preview-col" aria-live="polite">
       <div class="preview" data-for="commish">
-        <video src="on-chain-commish.mp4" poster="on-chain-commish-poster.jpg"
-               muted loop playsinline preload="metadata"></video>
+        <video src="on-chain-commish.mp4" poster="on-chain-commish-poster.jpg" muted loop playsinline
+          preload="metadata"></video>
         <p class="desc">Fantasy league buy-ins held in a smart contract, paid out by final ESPN standings.</p>
         <p class="links">
           <a href="https://onchaincommissioner.vercel.app/" target="_blank" rel="noopener">App</a>
           <a href="https://github.com/rushilshah11/league-treasury" target="_blank" rel="noopener">Code</a>
-          <a href="https://sepolia.etherscan.io/address/0xd39e4462F49009C15702638A7fAd34BC48Fa508F#code" target="_blank" rel="noopener">Contract</a>
+          <a href="https://sepolia.etherscan.io/address/0xd39e4462F49009C15702638A7fAd34BC48Fa508F#code" target="_blank"
+            rel="noopener">Contract</a>
         </p>
       </div>
       <div class="preview" data-for="fantasy" hidden>
@@ -97,7 +102,8 @@
         <p class="desc">Next-game predictions and an add/drop chatbot for my family's league. In progress.</p>
         <p class="links">
           <a href="https://basketball-microservices-project.vercel.app/" target="_blank" rel="noopener">App</a>
-          <a href="https://github.com/rushilshah11/basketball-microservices-project" target="_blank" rel="noopener">Code</a>
+          <a href="https://github.com/rushilshah11/basketball-microservices-project" target="_blank"
+            rel="noopener">Code</a>
         </p>
       </div>
       <div class="preview" data-for="redis" hidden>
@@ -109,7 +115,7 @@
         </p>
       </div>
       <div class="preview" data-for="sunkist" hidden>
-        <img src="sunkist-dental.jpg" alt="Sunkist Dental homepage" loading="lazy">
+        <img src="sunkistdental.png" alt="Sunkist Dental homepage" loading="lazy">
         <p class="desc">The website for a local dental practice.</p>
         <p class="links">
           <a href="https://sunkistdental.com" target="_blank" rel="noopener">App</a>
@@ -130,7 +136,7 @@
         const on = pv.dataset.for === name;
         pv.hidden = !on;
         const v = pv.querySelector('video');
-        if (v) { on ? v.play().catch(() => {}) : v.pause(); }
+        if (v) { on ? v.play().catch(() => { }) : v.pause(); }
       });
     }
 
@@ -156,4 +162,5 @@
     show('commish');
   </script>
 </body>
+
 </html>

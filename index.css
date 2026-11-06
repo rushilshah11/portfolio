@@ -73,9 +73,10 @@ a:hover {
   grid-template-columns: minmax(0, 780px) minmax(0, 1fr);
   gap: 56px;
   max-width: 1600px;
+  margin-inline: 0;
   min-height: 100vh;
-  padding: 40px 56px;
-  align-items: center;
+  padding: 80px 72px;
+  align-items: start;
 }
 
 /* Two-column rows: label on the left, content on the right */
