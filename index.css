@@ -48,7 +48,7 @@ ul {
 
 /* Links: dark forest green with a plain underline */
 a {
-  color: #1c3f27;
+  color: #2e6b42;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
@@ -56,7 +56,7 @@ a {
 }
 
 a:hover {
-  color: #2e6b42;
+  color: #1c3f27;
 }
 
 /* Muted lines (Resume) stay gray until hovered */
@@ -65,7 +65,7 @@ a:hover {
 }
 
 .muted a:hover {
-  color: #1c3f27;
+  color: #2e6b42;
 }
 
 /* Page: text on the left, project preview on the right */
