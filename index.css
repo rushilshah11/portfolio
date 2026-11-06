@@ -52,11 +52,10 @@ a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  transition: color 120ms ease;
 }
 
 a:hover {
-  color: #2e6b42;
+  color: #1c3f27;
 }
 
 /* Muted lines (Resume) stay gray until hovered */
@@ -144,7 +143,6 @@ a:hover {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
-  transition: color 120ms ease;
 }
 
 .project:hover {
