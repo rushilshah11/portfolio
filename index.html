@@ -1,1015 +1,159 @@
-<!DOCTYPE ahtml>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="frame-src https://open.spotify.com;">
-    <link rel="icon" type="image/x-icon" href="architect-favicon.png">
-    <link rel="stylesheet" href="index.css">
-    <title>Rushil Shah - Software Engineer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rushil Shah</title>
+  <meta name="description" content="Rushil Shah, software engineer in New York.">
+  <link rel="icon" type="image/png" href="architect-favicon.png">
+  <link rel="preload" href="fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="index.css">
 </head>
-
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">Rushil Shah</a>
-            <div class="nav-links">
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#education" class="nav-link">Education</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="Rushil-Shah-resume.pdf" class="nav-link" target="_blank" download>Resume</a>
-                <a href="#interests" class="nav-link">Beyond Code</a>
-                <a href="#contact" class="nav-link">GitHub | LinkedIn</a>
-            </div>
+  <main class="page">
+
+    <div class="info-col">
+
+      <section class="row">
+        <h1 class="label">Rushil Shah</h1>
+        <div class="content">
+          <p>
+            I'm a software engineer in New York. I'm building the digital assets platform
+            at Bank of America. I studied CS and Business at USC.
+          </p>
+          <p>
+            In the past, I've enjoyed working on risk monitoring for end-of-day batch
+            systems, a microservices app with gRPC and an API gateway, and marketing tech
+            for consumer brands. Lately I've been working on smart contracts and neat,
+            institutional frontend design for DeFi platforms.
+          </p>
+          <p>
+            Connect with me on <a href="https://github.com/rushilshah11" target="_blank" rel="noopener">GitHub</a>,
+            <a href="https://linkedin.com/in/rushilshahh" target="_blank" rel="noopener">LinkedIn</a>, or at
+            <a href="mailto:rushil.shah113@gmail.com">rushil.shah113@gmail.com</a>.
+          </p>
+          <p class="resume"><a href="Rushil-Shah-resume.pdf" target="_blank" rel="noopener">Resume</a></p>
         </div>
-    </nav>
+      </section>
 
-    <section class="hero" id="hero">
-        <div class="hero-content-wrapper">
-            <div class="hero-text">
-                <h1>Hi, I'm Rushil</h1>
-                <p class="hero-about-text">I'm a new grad software engineer who is interested in building scalable
-                    backend systems. I'm passionate about making thoughtful architectural
-                    decisions and learning from every line of code I write. </p>
-                <p class="hero-about-text">
-                    Under each project, I share not just what I've built, but
-                    why I built it that way. Under experience, I provide a roadmap with my learnings and insights from
-                    each stage of my
-                    career up to this point.
-                </p>
-                <p class="hero-about-text">When I'm not coding, you'll find me cheering for the Lakers 🏀, watching
-                    Ferrari race on Sundays 🏎️, or discovering new music on Spotify.</p>
-            </div>
-            <div class="hero-image-container">
-                <img src="rushil-headshot.jpg" alt="Rushil Shah Headshot" class="hero-image">
-            </div>
+      <section class="row">
+        <h2 class="label">Work</h2>
+        <ul class="content timeline">
+          <li><span class="when">Now</span><span>Bank of America, swe II, digital assets</span></li>
+          <li><span class="when">2025</span><span>Bank of America, swe I, market risk</span></li>
+          <li><span class="when">2024</span><span>Merrill Lynch, wealth management intern</span></li>
+          <li><span class="when">2024</span><span><a href="https://www.trojanmarketinggroup.org/" target="_blank" rel="noopener">Trojan Marketing Group</a>, director of technology</span></li>
+          <li><span class="when">2023</span><span><a href="https://science.nasa.gov/" target="_blank" rel="noopener">NASA JPL</a>, web development intern</span></li>
+        </ul>
+      </section>
+
+      <section class="row">
+        <h2 class="label">Projects</h2>
+        <div class="content projects-wrap">
+        <ul class="projects inline">
+          <li class="project is-active" tabindex="0" data-project="commish">On-Chain Commish</li>
+          <li class="project" tabindex="0" data-project="fantasy">Fantasy Basketball AI</li>
+          <li class="project" tabindex="0" data-project="redis">Redis, in Python</li>
+          <li class="project" tabindex="0" data-project="sunkist">Sunkist Dental</li>
+        </ul>
+          <div class="mobile-slot"></div>
         </div>
-        <div class="scroll-indicator"></div>
-    </section>
+      </section>
+
+      <section class="row">
+        <h2 class="label">Campaigns</h2>
+        <ul class="content inline">
+          <li><a href="https://www.trojanmarketinggroup.org/mailmodo" target="_blank" rel="noopener">Mailmodo</a></li>
+          <li><a href="https://www.trojanmarketinggroup.org/yate" target="_blank" rel="noopener">YATÉ</a></li>
+        </ul>
+      </section>
+
+      <section class="row">
+        <h2 class="label">Life</h2>
+        <ul class="content inline">
+          <li>Volunteer chef</li>
+          <li>Birdwatching</li>
+          <li>Family fantasy basketball commissioner</li>
+          <li>Lakers fan</li>
+        </ul>
+      </section>
 
-    <section class="skills-section" id="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skill-category-container">
-
-                <div class="skill-category">
-                    <h3 class="skill-category-title">🗣️ Languages</h3>
-                    <div class="skills-grid">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">SQL</span>
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">Java</span>
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="skill-category-title">⚙️ Backend</h3>
-                    <div class="skills-grid">
-                        <span class="tech-tag">FastAPI</span>
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">Express.js</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Microservices</span>
-                        <span class="tech-tag">REST APIs</span>
-                        <span class="tech-tag">JWT/BCrypt</span>
-                        <span class="tech-tag">Pydantic</span>
-                        <span class="tech-tag">JUnit</span>
-                        <span class="tech-tag">PyTest</span>
-                        <span class="tech-tag">Java Servlets</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="skill-category-title">💻 Frontend</h3>
-                    <div class="skills-grid">
-                        <span class="tech-tag">React.js</span>
-                        <span class="tech-tag">HTML</span>
-                        <span class="tech-tag">CSS</span>
-                        <span class="tech-tag">AJAX</span>
-                        <span class="tech-tag">JavaScript (ES6+)</span>
-                        <span class="tech-tag">TypeScript</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="skill-category-title">💾 Technologies (Data, Databases, Data Visualization)</h3>
-                    <div class="skills-grid">
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">MySQLWorkbench</span>
-                        <span class="tech-tag">SQL Server Management Studio</span>
-                        <span class="tech-tag">SQLite</span>
-                        <span class="tech-tag">Redis</span>
-                        <span class="tech-tag">NoSQL / MongoDB</span>
-                        <span class="tech-tag">SQLAlchemy</span>
-                        <span class="tech-tag">Data Modeling (Star/Kimball)</span>
-                        <span class="tech-tag">ETL/ELT Pipelines</span>
-                        <span class="tech-tag">Apache Airflow</span>
-                        <span class="tech-tag">Apache Spark</span>
-                        <span class="tech-tag">Web Scraping</span>
-                        <span class="tech-tag">Matplotlib</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">NumPy</span>
-                        <span class="tech-tag">Seaborn</span>
-                        <span class="tech-tag">Tableau</span>
-                        <span class="tech-tag">scikit-learn</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3 class="skill-category-title">🛠️ Developer Tools (DevOps, Cloud, IDE's, Deployment)</h3>
-                    <div class="skills-grid">
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">GitHub Actions (CI/CD)</span>
-                        <span class="tech-tag">AWS (S3, SES, Secrets, CloudWatch)</span>
-                        <span class="tech-tag">Firebase / Cloud Hosting</span>
-                        <span class="tech-tag">Git</span>
-                        <span class="tech-tag">VS Code</span>
-                        <span class="tech-tag">GitHub</span>
-                        <span class="tech-tag">Figma</span>
-                        <span class="tech-tag">Android Studio</span>
-                        <span class="tech-tag">Excel</span>
-                        <span class="tech-tag">Eclipse</span>
-                        <span class="tech-tag">DBeaver</span>
-                        <span class="tech-tag">NPM</span>
-                        <span class="tech-tag">Render</span>
-                        <span class="tech-tag">Splunk</span>
-                        <span class="tech-tag">Dynatrace</span>
-                        <span class="tech-tag">Supabase</span>
-                        <span class="tech-tag">Jira</span>
-                        <span class="tech-tag">Confluence</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="education-section" id="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-card">
-                <h3>University of Southern California</h3>
-                <div class="degree">Bachelor's degree, Computer Science & Business Administration</div>
-                <span class="date">Aug 2022 - May 2025</span>
-
-                <h3>University of California, Riverside</h3>
-                <div class="degree">Computer Science & Business Applications</div>
-                <span class="date">Sep 2021 - June 2022</span>
-
-                <div class="courses-title">Relevant Coursework</div>
-                <ul class="course-list">
-                    <li>CSCI 103 Introduction to C++ Programming</li>
-                    <li>CSCI 104 Data Structures and Object Oriented Design</li>
-                    <li>CSCI 170 Discrete Methods in Computer Science</li>
-                    <li>CSCI 201 Principles of Software Development</li>
-                    <li>CSCI 270 Introduction to Algorithms and Theory of Computing</li>
-                    <li>CSCI 310 Software Engineering</li>
-                    <li>CSCI 360 Introduction to Artificial Intelligence</li>
-                    <li>CSCI 401 Capstone: Design and Construction of Large Software Systems</li>
-                    <li>DSO 435 Enterprise Data Architecture</li>
-                    <li>DSO 462 Managing a Small Business on the Internet</li>
-                    <li>LING 285 Human Language and Technology</li>
-                    <li>MATH 225 Linear Algebra</li>
-                    <li>BUAD 302 Business Communications</li>
-                    <li>BUAD 304 Organizational Behavior</li>
-                    <li>BUAD 306 Business Finance</li>
-                    <li>BUAD 307 Marketing Fundementals</li>
-                    <li>BUAD 310 Applied Business Statistics</li>
-                    <li>BUAD 311 Operations Management</li>
-                    <li>ECON 351 Microeconomics</li>
-                    <li>ECON 352 Macroeconomics for Business</li>
-                    <li>WRIT 340 Advanced Writing Communication for Engineers</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="projects-section" id="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-
-            <div class="project-card" onclick="toggleProject(this)">
-                <div class="project-header">
-                    <div>
-                        <h3 class="project-title">Basketball Microservices Project</h3>
-                        <p class="project-summary">A deep dive into distributed systems, polyglot architecture, and the
-                            trade-offs of modern software engineering through building a basketball statistics platform
-                            using microservices.</p>
-                    </div>
-                    <span class="expand-icon">↓</span>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">FastAPI</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Spring Boot</span>
-                    <span class="tech-tag">Java</span>
-                    <span class="tech-tag">Redis</span>
-                    <span class="tech-tag">gRPC</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">JWT</span>
-                    <span class="tech-tag">Netflix Eureka</span>
-                    <span class="tech-tag">C4 Model</span>
-                    <span class="tech-tag">System Design</span>
-                    <span class="tech-tag">Next.js</span>
-                    <span class="tech-tag">TypeScript</span>
-                </div>
-                <div class="project-details">
-                    <div class="details-content">
-                        <div class="decision-section">
-                            <div class="project-links">
-                                <h4><a href="https://github.com/rushilshah11/basketball-microservices-project"
-                                        target="_blank" rel="noopener noreferrer" class="github-repo-link">
-                                        View README on GitHub →
-                                    </a></h4>
-                                <button class="architecture-btn" onclick="viewArchitecture(event)">View
-                                    Architecture</button>
-                            </div>
-                            <br>
-                            <p>
-                                Most of my previous projects were about building features. This project was about
-                                building a system from the ground up. I
-                                wanted to move past monolithic architecture and actually make decisions regarding
-                                perfomance tradeoffs and system design. I built a platform to track NBA player stats and
-                                predict future performance, but the real challenge was how these
-                                services talked to each other.
-                            </p>
-                            <h4>The "Why" Behind the Tech</h4>
-                            <p>I went with a Polyglot Architecture because I wanted the right tool for the job, not just
-                                the tool I knew best. I used
-                                Java (Spring Boot) for the Security and Stats services because Spring boot is the de
-                                facto for microservices. Also, tools like Netflix Eureka, Spring Cloud were very helpful
-                                for service discovery, load balancing, and fault tolerance.
-                                But for the nba-fetcher and prediction services, I used Python. Trying to do data
-                                science or heavy API scraping in Java
-                                felt like fighting the language, while Python’s ecosystem made it seamless.
-                                <br><br>
-                                One of the biggest trade-offs I made was implementing gRPC for internal communication
-                                between my Security and Stats
-                                services. I could have used standard REST, but I wanted to practice low-latency
-                                communication. Using Protobufs felt like
-                                a win because it forced me to define a strict contract between services, instead of
-                                guessing what an API response looks
-                                like.
-                            </p>
-                        </div>
-
-                        <div class="decision-section">
-                            <h4>Engineering Maturity & Habits</h4>
-                            <p>When you have five services running at once, you can’t just keep it all in your head.
-
-                                Documentation as a Tool: I started using ADRs (Architectural Decision Records). For
-                                example, I documented why I chose Redis Pub/Sub as the event bus for my AI Agent. I
-                                wrote down the consequences of that decision (services are decoupled), and the tradeoffs
-                                (No message persistence).
-                                <br><br>
-                                Visualizing Complexity: I adopted the C4 Model for my diagrams. I realized that if I
-                                couldn't draw the data flow at a
-                                Container and Component level, I didn't actually understand my own system.
-                                <br><br>
-                                Testing & Resilience: I moved away from just testing happy paths. I spent a lot of time
-                                writing unit tests in JUnit
-                                and Mockito to handle what happens when a service goes down. I used Docker Compose to
-                                manage the environment, ensuring
-                                that my PostgreSQL and Redis instances were always configured correctly across dev and
-                                prod.
-                            </p>
-                        </div>
-
-                        <div class="decision-section">
-                            <h4>Takeaway</h4>
-                            <p>Microservices are a double-edged sword. They give you amazing flexibility, but they tax
-                                you with complexity in service discovery and data consistency. Navigating that tax made
-                                me a much better developer. I
-                                stopped just writing code and started thinking about how systems survive in the real
-                                world.</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" onclick="toggleProject(this)">
-                <div class="project-header">
-                    <div>
-                        <h3 class="project-title">Automated Financial Data Pipeline</h3>
-                        <p class="project-summary">Full-stack system to automatically collect, process, and deliver
-                            personalized financial updates via backend automation and a lightweight React web interface.
-                        </p>
-                    </div>
-                    <span class="expand-icon">↓</span>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">FastAPI</span>
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">SQLAlchemy</span>
-                    <span class="tech-tag">Pydantic</span>
-                    <span class="tech-tag">Finnhub API</span>
-                    <span class="tech-tag">AWS SES</span>
-                    <span class="tech-tag">AWS S3</span>
-                    <span class="tech-tag">JWT</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">GitHub Actions</span>
-                    <span class="tech-tag">React</span>
-                </div>
-                <div class="project-details">
-                    <div class="details-content">
-                        <div class="decision-section">
-                            <h4><a href="https://github.com/rushilshah11/automated-financial-data-pipeline"
-                                    target="_blank" rel="noopener noreferrer" class="github-repo-link">
-                                    View README on GitHub →
-                                </a></h4>
-                            <br>
-                            <h4>Why FastAPI Over Flask or Django?</h4>
-                            <p>I chose FastAPI because I needed native async/await support for concurrent API calls to
-                                Finnhub. Flask's sync nature would have required workarounds like Celery, adding
-                                unnecessary
-                                complexity. Django felt too heavy for a focused API service. FastAPI's automatic OpenAPI
-                                documentation and Pydantic integration meant I could enforce data contracts at
-                                compile-time
-                                rather than discovering issues at runtime. This was important when handling financial
-                                data where
-                                type
-                                safety matters.</p>
-                        </div>
-
-                        <div class="decision-section">
-                            <h4>AWS SES and S3: Why Not SendGrid or Local Storage?</h4>
-                            <p>I evaluated SendGrid and Mailgun for email delivery, but AWS SES made more sense for
-                                three
-                                reasons: (1) significantly lower cost at scale, (2) tight integration with other AWS
-                                services I planned to use (Lambda for future expansion), and (3) better deliverability
-                                reputation for transactional emails. For logging, I chose S3 over local filesystem or
-                                CloudWatch because I wanted immutable audit trails that survive container restarts, and
-                                S3's
-                                lifecycle policies let me automatically archive old logs without manual intervention.
-                            </p>
-                        </div>
-
-                        <div class="decision-section">
-                            <h4>Layered Architecture: Preventing Service-ORM Coupling</h4>
-                            <p>I strictly separated Routers → Services → Repositories to avoid the common mistake of
-                                embedding SQLAlchemy queries directly in business logic. This meant I could swap
-                                PostgreSQL
-                                for another database (or add caching) by only touching the repository layer. The Service
-                                layer handles password hashing and ETL orchestration without knowing how User objects
-                                are
-                                stored. This separation also made testing easier, since I could mock repositories
-                                without
-                                spinning
-                                up a database.</p>
-                        </div>
-
-                        <div class="decision-section">
-                            <h4>Async Patterns for ETL Performance</h4>
-                            <p>The ETL pipeline needed to fetch quotes and profiles for potentially dozens of tickers.
-                                Running these sequentially would have caused unacceptable latency. Using
-                                <code>asyncio.gather</code> let me fire all requests concurrently, cutting execution
-                                time by. I used <code>asyncio.to_thread</code> for the Finnhub SDK (which is
-                                synchronous) to
-                                prevent blocking FastAPI's event loop (a mistake I made in early iterations that caused
-                                the
-                                entire API to hang during data fetches)
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card redis-featured" onclick="toggleProject(this)">
-                <div class="project-content-wrapper">
-                    <div class="project-left-content">
-                        <div class="project-header redis-header">
-                            <div>
-                                <h3 class="project-title">Python Redis From Scratch</h3>
-                                <p class="project-summary">A high-fidelity implementation of a Redis server in Python,
-                                    featuring
-                                    a multi-threaded, non-blocking architecture adhering to the Redis Serialization
-                                    Protocol
-                                    (RESP).</p>
-                            </div>
-                            <span class="expand-icon">↓</span>
-                        </div>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Multi-threading</span>
-                            <span class="tech-tag">Socket Programming</span>
-                            <span class="tech-tag">RESP</span>
-                            <span class="tech-tag">Geo-Spatial</span>
-                            <span class="tech-tag">Replication</span>
-                        </div>
-                    </div>
-                    <div class="project-video-container">
-                        <video class="project-preview-video" autoplay muted loop>
-                            <source src="Redis Preview.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <a href="https://youtu.be/LGukNAYP9YY" target="_blank" rel="noopener noreferrer"
-                            class="video-overlay">
-                            <span class="youtube-badge">▶ Watch on YouTube</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="project-details">
-                    <div class="details-content">
-                        <h4><a href="https://github.com/rushilshah11/redis-from-scratch" target="_blank"
-                                rel="noopener noreferrer" class="github-repo-link">
-                                View README on GitHub →
-                            </a></h4>
-                        <br>
-                        <div class="decision-section">
-                            <h4>Why Build Redis After a Financial Pipeline?</h4>
-                            <p>After building the financial pipeline, I realized I was abstracting away critical
-                                infrastructure. I understood FastAPI and PostgreSQL at a high level, but didn't truly
-                                grasp
-                                how databases handle concurrent writes or how replication actually works. Building Redis
-                                forced me to reason about locking primitives, network protocols, and data persistence
-                                from
-                                first principles. It's the difference between using a tool and understanding the tool.
-                                This
-                                project taught me why certain database design decisions exist (like why Redis is
-                                single-threaded for most operations).</p>
-                        </div>
-
-                        <div class="decision-section">
-                            <h4>Thread-Per-Connection vs Event Loop</h4>
-                            <p>I chose a multi-threaded architecture (one thread per client) over an event loop like
-                                asyncio
-                                because I wanted to learn traditional concurrency primitives. Redis's actual
-                                implementation
-                                uses a single-threaded event loop for different reasons (CPU-bound operations), but for
-                                a
-                                learning exercise, managing <code>threading.Lock</code> and
-                                <code>threading.Condition</code>
-                                gave me hands-on experience with race conditions and deadlocks. I hit both problems
-                                early: clients would hang during BLPOP, and concurrent ZADD operations would corrupt
-                                data
-                                until I fixed my locking strategy.
-                            </p>
-                        </div>
-
-                        <div class="decision-section">
-                            <h4>Implementing Blocking Operations: The Hard Parts</h4>
-                            <p>BLPOP was the most challenging feature. I needed threads to sleep efficiently when lists
-                                were
-                                empty, then wake immediately when data arrived. My first attempt used a polling loop
-                                (checking every 100ms), which was wasteful and had high latency. The correct solution
-                                was
-                                <code>threading.Condition</code>, where threads wait on a condition variable, and RPUSH
-                                broadcasts
-                                a notification. This pattern taught me why condition variables exist and how databases
-                                handle blocked queries without burning CPU.
-                            </p>
-                        </div>
-
-                        <div class="decision-section">
-                            <h4>Replication: Understanding Distributed Systems</h4>
-                            <p>Implementing master-replica replication revealed why distributed databases are complex. I
-                                had
-                                to handle partial command propagation (what if the replica dies mid-sync?), implement
-                                PSYNC
-                                for incremental updates, and track replica acknowledgments for WAIT commands. The
-                                hardest
-                                bug was a deadlock in WAIT. I was holding a data lock while waiting for replica
-                                responses,
-                                blocking all other operations. The fix required releasing locks before network I/O,
-                                which is
-                                a fundamental pattern in databases.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" onclick="toggleProject(this)">
-                <div class="project-header">
-                    <div>
-                        <h3 class="project-title">Data Warehouse and Analytics Project</h3>
-                        <p class="project-summary">A comprehensive data warehousing and analytics solution demonstrating
-                            industry best practices by building an ELT pipeline and generating insights from
-                            consolidated sales data.</p>
-                    </div>
-                    <span class="expand-icon">↓</span>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">SQL Server</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">ELT Pipelines</span>
-                    <span class="tech-tag">Data Modeling</span>
-                    <span class="tech-tag">Medallion Architecture</span>
-                    <span class="tech-tag">Star Schema</span>
-                </div>
-                <div class="project-details">
-                    <div class="details-content">
-                        <h4><a href="https://github.com/rushilshah11/sql-data-warehousing-project" target="_blank"
-                                rel="noopener noreferrer" class="github-repo-link">
-                                View README on GitHub →
-                            </a></h4>
-                        <br>
-                        <div class="decision-section">
-                            <h4>Why SQL and Data Warehousing Matter for Backend Engineers</h4>
-                            <p>Most backend engineers interact with databases through ORMs, which is fine for OLTP
-                                workloads
-                                but fails for analytics. I built this project to understand how data warehouses differ
-                                fundamentally from transactional databases. Different query patterns (aggregations vs
-                                point
-                                lookups), Different schemas (star schema vs normalized), and Different optimization
-                                strategies (columnar storage, materialized views). This knowledge directly applies when
-                                designing APIs that need to serve analytical queries efficiently.</p>
-                        </div>
-
-                        <div class="decision-section">
-                            <h4>Medallion Architecture: Why Three Layers?</h4>
-                            <p>I chose Medallion (Bronze/Silver/Gold) over alternatives like just loading directly into
-                                a
-                                star schema because it provides clear boundaries for data quality improvements. Bronze
-                                preserves raw source data (critical for auditing), Silver handles cleansing without
-                                business
-                                logic creep, and Gold serves analytics without impacting transformation pipelines. When
-                                data quality issues emerged in the Silver layer, I could fix
-                                them without re-ingesting from source or breaking Gold-layer reports.</p>
-                        </div>
-
-                        <div class="decision-section">
-                            <h4>ELT vs ETL: Processing In-Database</h4>
-                            <p>I used ELT (Extract-Load-Transform) instead of ETL because SQL Server can process
-                                transformations faster than Python. Loading raw CSVs into Bronze, then transforming
-                                in-database using SQL, leverages the database's query optimizer and parallelism. ETL
-                                (transforming before loading) makes sense when the source system is too slow or you need
-                                complex logic that SQL can't express, but for structured CSV data, in-database
-                                transformations were 5x faster in my tests.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card" onclick="toggleProject(this)">
-                <div class="project-header">
-                    <div>
-                        <h3 class="project-title">Sunkist Dental Clinic Website (React SPA)</h3>
-                        <p class="project-summary">A modern, responsive Single-Page Application (SPA) built for a local
-                            dental practice focusing on user experience, professional design fidelity, and a
-                            maintainable component architecture.</p>
-                    </div>
-                    <span class="expand-icon">↓</span>
-                </div>
-                <div class="tech-stack">
-                    <span class="tech-tag">ReactJS</span>
-                    <span class="tech-tag">Tailwind CSS</span>
-                    <span class="tech-tag">JavaScript (ES6+)</span>
-                    <span class="tech-tag">Firebase</span>
-                </div>
-                <div class="project-details">
-                    <div class="details-content">
-                        <h4><a href="https://sunkist-dental.web.app/" target="_blank" rel="noopener noreferrer"
-                                class="github-repo-link">
-                                View Website →
-                            </a></h4>
-                        <br>
-                        <div class="decision-section">
-                            <h4>React Over Raw HTML/CSS or Other Frameworks</h4>
-                            <p>I evaluated three options: vanilla HTML/CSS/JS, React, and Vue. Raw HTML would have meant
-                                duplicating features and components across the page and manually managing DOM updates
-                                for
-                                the
-                                appointment form. Vue was tempting for its simplicity, but React's ecosystem (more
-                                libraries, better TypeScript support, larger community) made it the pragmatic choice.
-                                The
-                                component-based model meant I could build <code>Employee.js</code> once and render it
-                                with
-                                different props—impossible with static HTML without templating engines.</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="experience-section" id="experience">
-        <div class="container">
-            <h2 class="section-title">Experience Roadmap</h2>
-            <div class="timeline-roadmap-intro">
-                <p>This is a narrative of
-                    my
-                    growth, architectural learnings, and pivotal career decisions that have led me to specialize in
-                    scalable
-                    backend systems.</p>
-            </div>
-            <div class="timeline-container">
-                <div class="timeline-nav">
-                    <div class="timeline-nav-inner">
-                        <div class="timeline-nav-item active" onclick="showExperience(0)">
-                            <div class="timeline-nav-dot"></div>
-                            <div class="timeline-nav-title">Software Engineer</div>
-                            <div class="timeline-nav-company">Bank of America</div>
-                            <div class="timeline-nav-date">July 2025 - Present</div>
-                        </div>
-                        <div class="timeline-nav-item inactive" onclick="showExperience(1)">
-                            <div class="timeline-nav-dot"></div>
-                            <div class="timeline-nav-title">Director of Technology</div>
-                            <div class="timeline-nav-company">Trojan Marketing Group</div>
-                            <div class="timeline-nav-date">Sep 2022 - May 2025</div>
-                        </div>
-                        <div class="timeline-nav-item inactive" onclick="showExperience(2)">
-                            <div class="timeline-nav-dot"></div>
-                            <div class="timeline-nav-title">Wealth Management Intern</div>
-                            <div class="timeline-nav-company">Bank of America</div>
-                            <div class="timeline-nav-date">June 2024 - Aug 2024</div>
-                        </div>
-                        <div class="timeline-nav-item inactive" onclick="showExperience(3)">
-                            <div class="timeline-nav-dot"></div>
-                            <div class="timeline-nav-title">Web Development Intern</div>
-                            <div class="timeline-nav-company">NASA JPL</div>
-                            <div class="timeline-nav-date">Sep 2023 - May 2024</div>
-                        </div>
-                        <div class="timeline-nav-item inactive" onclick="showExperience(4)">
-                            <div class="timeline-nav-dot"></div>
-                            <div class="timeline-nav-title">Software Engineering Intern</div>
-                            <div class="timeline-nav-company">Sunkist Dental</div>
-                            <div class="timeline-nav-date">Mar 2023 - May 2023</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-content-wrapper">
-                    <div class="timeline-item active" data-index="0">
-                        <div class="experience-card timeline-content">
-                            <h3>Software Engineer (Incoming)</h3>
-                            <div class="company">Bank of America</div>
-                            <div class="date">July 2025 - Present</div>
-                            <div class="experience-roadmap-entry">
-                                <h4>Full Time Software Engineer</h4>
-                                <p>Incoming Software Engineer</p>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-index="1">
-                        <div class="experience-card timeline-content">
-                            <h3>Director of Technology</h3>
-                            <div class="company">Trojan Marketing Group</div>
-                            <div class="date">Sep 2022 - May 2025</div>
-                            <div class="experience-roadmap-entry">
-                                <h4>Leadership Experience</h4>
-
-                                <p>I joined Trojan Marketing Group my first year at USC to bridge my interests in
-                                    technology and business.
-                                    TMG works with four clients each year, spending one semester developing data-driven
-                                    strategy and the next
-                                    executing the campaign. As I grew from Technologist to Director of Technology, I
-                                    focused on building tools
-                                    that made our strategic and creative decisions smarter.</p>
-
-                                <h5>YouTube Brand Analysis Dashboard</h5>
-                                <p>While working with Mailmodo, I noticed our team needed better insights from YouTube
-                                    analytics. I built an
-                                    internal
-                                    Python scraper using the YouTube Data API to analyze engagement metrics and SEO
-                                    performance. This year, I
-                                    expanded
-                                    it into a React-based dashboard so that any member could input a channel ID and
-                                    instantly retrieve insights like
-                                    top-performing videos, tag frequency, and engagement patterns with no coding
-                                    required.
-                                </p>
-
-                                <h5>YATÉ Spotify Drink Recommendation App</h5>
-                                <p>For YATÉ, a beverage brand with strong musical roots, I helped develop a full-stack
-                                    web app that let users log in
-                                    through Spotify. We analyzed their listening data to recommend personalized drink
-                                    pairings during on-campus
-                                    tastings, creating an interactive and memorable brand experience.</p>
-
-                                <p>These projects showed me how much I enjoy building technology that directly
-                                    influences marketing strategy and
-                                    audience engagement. They weren’t just side projects. They were technical
-                                    initiatives driven by creative discussion and client
-                                    insight.
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-index="2">
-                        <div class="experience-card timeline-content">
-                            <h3>Merrill Lynch Wealth Management Intern</h3>
-                            <div class="company">Bank of America</div>
-                            <div class="date">June 2024 - Aug 2024</div>
-                            <div class="experience-roadmap-entry">
-                                <h4>Understanding Finance Through Systems</h4>
-                                <p>I chose wealth management because of the finance component of my Computer Science and
-                                    Business Administration
-                                    degree.
-                                    I wanted to see how financial advising actually works in practice. I learned about
-                                    how markets
-                                    move, how clients think, and how
-                                    data shapes real investment decisions.</p>
-
-                                <p>Wealth management is extremely dynamic. Markets shift, clients shift, and strategies
-                                    must adjust constantly.
-                                    During my time there, I worked on:</p>
-                                <ul>
-                                    <li>Market research to identify and segment high-net-worth prospects</li>
-                                    <li>Client data analysis using Excel and Merrill’s Personal Wealth Analysis tool to
-                                        support financial planning
-                                    </li>
-                                </ul>
-
-                                <p>What I enjoyed was seeing how technology and data directly influence decisions that
-                                    impact people’s financial
-                                    lives.
-                                    But I also realized something important about myself:
-                                    I didn’t resonate with the client-facing side of the role.</p>
-
-                                <p>I didn’t want to be the person presenting insights.
-                                    I wanted to be the one building the systems that generate those insights.</p>
-
-                                <p>At the bank, the engineers build the platforms that traders and advisors rely on
-                                    every day.
-                                    And that’s where I found my next role as a software engineer at the bank. </p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-index="3">
-                        <div class="experience-card timeline-content">
-                            <h3>Web Development APX Intern</h3>
-                            <div class="company">NASA Jet Propulsion Laboratory</div>
-                            <div class="date">Sep 2023 - May 2024</div>
-                            <div class="experience-roadmap-entry">
-                                <h4>CMS & User-Centric Design</h4>
-
-                                <p>At NASA JPL, I worked on the NASA Web Mod initiative to migrate the existing
-                                    science.nasa.gov website into a new
-                                    CMS.
-                                    It was my first time contributing to a large, public-facing codebase, and I remember
-                                    immediately feeling the
-                                    scale and
-                                    rigor of the engineering environment around me.</p>
-
-                                <p>A core part of my role was ensuring <b>accessibility compliance</b>.
-                                    This meant verifying keyboard navigation flows, evaluating screen reader behavior,
-                                    and making sure the platform
-                                    supported
-                                    users with different abilities. It was slow, methodical, and required a level of
-                                    precision I hadn’t experienced
-                                    before.</p>
-
-                                <p>During this time, I gained exposure to:</p>
-
-                                <ul>
-                                    <li>Structured engineering workflows</li>
-                                    <li>GitHub issue tracking & pipelines</li>
-                                    <li>Code review discussions and standards</li>
-                                    <li>Designing with the user experience always in mind</li>
-                                </ul>
-
-                                <p>But the most impactful realization was that I was increasingly drawn to what sits
-                                    <i>behind</i> the interface:
-                                    the systems, architecture, data flow, and logic that allow these platforms to
-                                    operate reliably at scale.
-                                </p>
-
-                                <p>This experience is where I recognized that I want to grow further into <b>backend
-                                        engineering</b>, working with
-                                    systems,
-                                    APIs, and architecture rather than solely focusing on the front-facing product
-                                    surface.</p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="timeline-item" data-index="4">
-                        <div class="experience-card timeline-content">
-                            <h3>Software Engineering Intern</h3>
-                            <div class="company">Sunkist Dental</div>
-                            <div class="date">Mar 2023 - May 2023</div>
-                            <div class="experience-roadmap-entry">
-                                <h4>First Website</h4>
-
-                                <p>Sunkist Dental was my first real introduction to web development with real users in
-                                    mind. Before writing any
-                                    code, I spent time understanding the clinic’s patient base. Most patients were older
-                                    adults who preferred
-                                    calling the front desk to schedule appointments, which highlighted the first major
-                                    pain point:</p>
-
-                                <ul>
-                                    <li><b>Pain Point #1:</b> How to make online booking intuitive and comfortable for a
-                                        less tech-savvy audience.
-                                    </li>
-                                </ul>
-
-                                <p>The second issue was information inconsistency. Because the clinic was small,
-                                    business hours and service details
-                                    weren’t regularly updated on Google or Apple Maps. Patients often had to call just
-                                    to confirm basic information.
-                                </p>
-
-                                <ul>
-                                    <li><b>Pain Point #2:</b> Provide one central hub with up-to-date, reliable clinic
-                                        information.</li>
-                                </ul>
-
-                                <p>So my task became clear: <b>design a clean, friendly, and easy-to-use website that
-                                        allows patients to book
-                                        appointments online and view accurate clinic information without requiring the
-                                        staff to regularly maintain
-                                        it.</b></p>
-
-                                <p>Through this project, I learned React.js, Firebase, EmailJS, version control, Figma,
-                                    and how to translate
-                                    real-world business constraints into product decisions. It was also my first deep
-                                    dive into frontend design, which was
-                                    rewarding, but it helped me realize that I’m more energized by logic, data flow, and
-                                    system architecture than
-                                    visual styling alone.</p>
-
-                                <p><b>Measurable Impact:</b> The online booking system reduced front desk workload by
-                                    <b>~20%</b> and contributed to
-                                    <b>50+ new patient appointments</b>, proving to me how software can directly improve
-                                    operations and revenue.
-                                </p>
-
-                                <p><i>View this website in the Projects section.</i></p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="favorites-section" id="interests">
-        <div class="container">
-            <h2 class="section-title">Beyond Code</h2>
-            <div class="favorites-content">
-                <div class="favorites-intro">
-                    <p>Here are some of my interests outside of coding!
-                    </p>
-                    <div class="team-badges">
-                        <div class="team-badges">
-                            <div class="badge teaching-badge">📚 Teaching</div>
-                            <div class="badge lakers-badge">🏀 Lakers Fan</div>
-                            <div class="badge ferrari-badge">🏎️ Forza Ferrari</div>
-                            <div class="badge hiking-badge">⛰️ Hiking</div>
-                            <div class="badge gym-badge">💪 Physical Therapy</div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 style="color: #3b82f6; text-align: center; margin-bottom: 1.5rem; font-size: 1.5rem;">Currently on
-                    Repeat</h3>
-                <div class="spotify-grid">
-                    <iframe class="spotify-embed" style="border-radius:12px"
-                        src="https://open.spotify.com/embed/track/44tvO4XzGU9rbbmZSYcDj0?utm_source=generator"
-                        width="100%" height="152" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-
-                    <iframe class="spotify-embed" style="border-radius:12px"
-                        src="https://open.spotify.com/embed/track/44SSviC4R1TkAdsyptjDpE?utm_source=generator"
-                        width="100%" height="152" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-
-                    <iframe class="spotify-embed" style="border-radius:12px"
-                        src="https://open.spotify.com/embed/track/0dFdGPVLs3k0z9ezYWZzUa?utm_source=generator"
-                        width="100%" height="152" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-
-                    <iframe class="spotify-embed" style="border-radius:12px"
-                        src="https://open.spotify.com/embed/track/51mLQ3w7yR7vjdSTFLWaY5?utm_source=generator"
-                        width="100%" height="152" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p style="color: #a1a1aa; max-width: 600px; margin: 0 auto;">I'm always open to discussing new
-                opportunities, interesting projects, or just chatting about technology!</p>
-            <div class="contact-links">
-                <a href="mailto:rushil.shah113@gmail.com" class="contact-link">✉ Email</a>
-                <a href="https://github.com/rushilshah11" class="contact-link" target="_blank">⚡ GitHub</a>
-                <a href="https://linkedin.com/in/rushilshahh" class="contact-link" target="_blank">💼 LinkedIn</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Architecture Modal -->
-    <div id="architectureModal" class="modal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeArchitectureModal()">&times;</span>
-            <h2>Architecture Diagrams</h2>
-            <p style="color: #a1a1aa; font-size: 0.9rem; margin-bottom: 1.5rem;">Click on any diagram to expand</p>
-            <div class="modal-diagrams">
-                <div class="diagram-container">
-                    <h3>System Context Diagram</h3>
-                    <img src="system_context_diagram.jpg" alt="System Context Diagram"
-                        class="architecture-image clickable-diagram" onclick="expandDiagram(this)">
-                </div>
-                <div class="diagram-container">
-                    <h3>Container Diagram</h3>
-                    <img src="container_diagram.jpg" alt="Container Diagram"
-                        class="architecture-image clickable-diagram" onclick="expandDiagram(this)">
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- Expanded Diagram Modal -->
-    <div id="expandedDiagramModal" class="expanded-modal" onclick="closeExpandedDiagram(event)">
-        <div class="expanded-modal-content">
-            <span class="modal-close" onclick="closeExpandedDiagram()">&times;</span>
-            <img id="expandedImage" src="" alt="Expanded Diagram" class="expanded-diagram-image">
-        </div>
-    </div>
+    <!-- One preview panel; hovering or tapping a project swaps what it shows -->
+    <aside class="preview-col" aria-live="polite">
+      <div class="preview" data-for="commish">
+        <video src="on-chain-commish.mp4" poster="on-chain-commish-poster.jpg"
+               muted loop playsinline preload="metadata"></video>
+        <p class="desc">Fantasy league buy-ins held in a smart contract, paid out by final ESPN standings.</p>
+        <p class="links">
+          <a href="https://onchaincommissioner.vercel.app/" target="_blank" rel="noopener">App</a>
+          <a href="https://github.com/rushilshah11/league-treasury" target="_blank" rel="noopener">Code</a>
+          <a href="https://sepolia.etherscan.io/address/0xd39e4462F49009C15702638A7fAd34BC48Fa508F#code" target="_blank" rel="noopener">Contract</a>
+        </p>
+      </div>
+      <div class="preview" data-for="fantasy" hidden>
+        <div class="media-empty">Video soon</div>
+        <p class="desc">Next-game predictions and an add/drop chatbot for my family's league. In progress.</p>
+        <p class="links">
+          <a href="https://basketball-microservices-project.vercel.app/" target="_blank" rel="noopener">App</a>
+          <a href="https://github.com/rushilshah11/basketball-microservices-project" target="_blank" rel="noopener">Code</a>
+        </p>
+      </div>
+      <div class="preview" data-for="redis" hidden>
+        <video src="Redis%20Preview.mp4" muted loop playsinline preload="metadata"></video>
+        <p class="desc">A Redis server from scratch: the wire protocol, blocking commands, replication.</p>
+        <p class="links">
+          <a href="https://github.com/rushilshah11/redis-from-scratch" target="_blank" rel="noopener">Code</a>
+          <a href="https://youtu.be/LGukNAYP9YY" target="_blank" rel="noopener">Full demo</a>
+        </p>
+      </div>
+      <div class="preview" data-for="sunkist" hidden>
+        <div class="media-empty">No video, the site is live</div>
+        <p class="desc">The website for a local dental practice. My first real users.</p>
+        <p class="links">
+          <a href="https://sunkistdental.com" target="_blank" rel="noopener">App</a>
+          <a href="https://github.com/rushilshah11/sunkist-dental" target="_blank" rel="noopener">Code</a>
+        </p>
+      </div>
+    </aside>
 
-    <script>
-        function toggleProject(card) {
-            card.classList.toggle('expanded');
-        }
+  </main>
 
-        function viewArchitecture(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            const modal = document.getElementById('architectureModal');
-            modal.classList.add('active');
-        }
+  <script>
+    const projects = document.querySelectorAll('.project');
+    const previews = document.querySelectorAll('.preview');
 
-        function closeArchitectureModal() {
-            const modal = document.getElementById('architectureModal');
-            modal.classList.remove('active');
-        }
+    function show(name) {
+      projects.forEach(p => p.classList.toggle('is-active', p.dataset.project === name));
+      previews.forEach(pv => {
+        const on = pv.dataset.for === name;
+        pv.hidden = !on;
+        const v = pv.querySelector('video');
+        if (v) { on ? v.play().catch(() => {}) : v.pause(); }
+      });
+    }
 
-        function expandDiagram(imgElement) {
-            const expandedModal = document.getElementById('expandedDiagramModal');
-            const expandedImage = document.getElementById('expandedImage');
-            expandedImage.src = imgElement.src;
-            expandedImage.alt = imgElement.alt;
-            expandedModal.classList.add('active');
-        }
+    projects.forEach(p => {
+      const go = () => show(p.dataset.project);
+      p.addEventListener('mouseenter', go);
+      p.addEventListener('focus', go);
+      p.addEventListener('click', go);
+    });
 
-        function closeExpandedDiagram(event) {
-            if (event && event.target.id !== 'expandedDiagramModal') {
-                return;
-            }
-            const expandedModal = document.getElementById('expandedDiagramModal');
-            expandedModal.classList.remove('active');
-        }
-        window.onclick = function (event) {
-            const modal = document.getElementById('architectureModal');
-            if (event.target === modal) {
-                closeArchitectureModal();
-            }
-        }
+    // On small screens, move the preview panel right under the project list
+    const panel = document.querySelector('.preview-col');
+    const page = document.querySelector('.page');
+    const slot = document.querySelector('.mobile-slot');
+    const small = window.matchMedia('(max-width: 960px)');
+    function place() {
+      if (small.matches) slot.appendChild(panel);
+      else page.appendChild(panel);
+    }
+    small.addEventListener('change', place);
+    place();
 
-        function showExperience(index) {
-            // Get all timeline items and nav items
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            const navItems = document.querySelectorAll('.timeline-nav-item');
-
-            // Hide all timeline items
-            timelineItems.forEach(item => {
-                item.classList.remove('active');
-            });
-
-            // Show the selected timeline item
-            timelineItems[index].classList.add('active');
-
-            // Update nav items - mark all as inactive first
-            navItems.forEach((item, i) => {
-                item.classList.remove('active');
-                item.classList.add('inactive');
-            });
-
-            // Mark the selected item as active
-            navItems[index].classList.remove('inactive');
-            navItems[index].classList.add('active');
-
-            // Smooth scroll to the content on mobile
-            if (window.innerWidth <= 992) {
-                const contentWrapper = document.querySelector('.timeline-content-wrapper');
-                contentWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
-    </script>
+    show('commish');
+  </script>
 </body>
-
 </html>
