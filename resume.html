@@ -24,34 +24,39 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preload" href="fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="index.css?v=4">
+  <link rel="stylesheet" href="index.css?v=5">
 </head>
 
 <body>
-  <main class="page resume-page">
-
-    <nav class="resume-nav">
-      <a href="./">&larr; Rushil Shah</a>
-      <a href="Rushil_Shah_Resume.pdf" download>Download PDF</a>
+  <header class="topbar">
+    <a class="home" href="./">Rushil Shah</a>
+    <nav>
+      <a href="resume.html" aria-current="page">Resume</a>
+      <a href="mailto:rushil.shah113@gmail.com">Email</a>
     </nav>
+  </header>
 
-    <section class="row">
-      <h1 class="label">Education</h1>
-      <div class="content">
+  <main class="column resume">
+
+    <div class="resume-actions">
+      <a href="./">&larr; Back</a>
+      <a href="Rushil_Shah_Resume.pdf" download>Download PDF</a>
+    </div>
+
+    <section class="block">
+      <h2 class="eyebrow">Education</h2>
         <div class="entry">
-          <p class="entry-head"><span>University of Southern California</span><span class="when">2021 – 2025</span></p>
-          <p class="role">B.S. in Computer Science and Business Administration</p>
+          <p class="entry-head"><span class="org">University of Southern California</span><span class="when">2021 – 2025</span></p>
+          <p class="pos">B.S. in Computer Science and Business Administration</p>
         </div>
-      </div>
     </section>
 
-    <section class="row">
-      <h2 class="label">Experience</h2>
-      <div class="content">
+    <section class="block">
+      <h2 class="eyebrow">Experience</h2>
 
         <div class="entry" id="bofa">
-          <p class="entry-head"><span>Bank of America</span><span class="when">Aug. 2026 – Now</span></p>
-          <p class="role">Software Engineer II, Digital Assets</p>
+          <p class="entry-head"><span class="org">Bank of America</span><span class="when">Aug. 2026 – Now</span></p>
+          <p class="pos">Software Engineer II, Digital Assets</p>
           <ul class="bullets">
             <li>Architected a new digital asset platform from inception, shaping product and design direction while owning the Express backend, OpenShift CI/CD, and the marketing landing page used to present the platform across the bank</li>
             <li>Shipped 20 pages of the platform UI in 2 weeks with typed React, shadcn, RTK Query, and Mock Service Worker (MSW), serving operations, production support, management, and business users across Risk and Collateral</li>
@@ -62,7 +67,7 @@
         </div>
 
         <div class="entry" id="bofa-swe1">
-          <p class="entry-head"><span class="role">Software Engineer I, Market Risk</span><span class="when">Jul. 2025 – Aug. 2026</span></p>
+          <p class="entry-head"><span class="pos">Software Engineer I, Market Risk</span><span class="when">Jul. 2025 – Aug. 2026</span></p>
           <ul class="bullets">
             <li>Consolidated 5+ tools into one Python/Dash dashboard for market risk EOD batch monitoring, pulling from Sybase, APIs, web scraping, and email and automating alerts and resubmissions, saving 20+ hours weekly</li>
             <li>Automated the weekly market risk stability deck as a scheduled Python batch job, visualizing report delays and root causes for the Risk Stability team and eliminating 10+ hours of weekly manual work</li>
@@ -70,8 +75,8 @@
         </div>
 
         <div class="entry" id="tmg">
-          <p class="entry-head"><span>Trojan Marketing Group</span><span class="when">Feb. 2024 – May 2025</span></p>
-          <p class="role">Director of Technology</p>
+          <p class="entry-head"><span class="org">Trojan Marketing Group</span><span class="when">Feb. 2024 – May 2025</span></p>
+          <p class="pos">Director of Technology</p>
           <ul class="bullets">
             <li>Launched a React app for a beverage client's live event using Spotify OAuth and Grok, recommending drinks from the client's menu based on each attendee's top artists and tracks for 300+ attendees</li>
             <li>Directed a 12-member tech team across 4 client accounts, running sprints, mentoring members, presenting technical direction to clients, and tying each build to the client's marketing campaign</li>
@@ -80,8 +85,8 @@
         </div>
 
         <div class="entry" id="jpl">
-          <p class="entry-head"><span>NASA Jet Propulsion Laboratory</span><span class="when">Sep. 2023 – May 2024</span></p>
-          <p class="role">Software Development Intern</p>
+          <p class="entry-head"><span class="org">NASA Jet Propulsion Laboratory</span><span class="when">Sep. 2023 – May 2024</span></p>
+          <p class="pos">Software Development Intern</p>
           <ul class="bullets">
             <li>Built a migration QA tool in Python and Playwright that compared old WordPress pages against their science.nasa.gov versions, automatically flagging missing content, images, broken links, and structural differences</li>
             <li>Developed a React/TypeScript dashboard on FastAPI with batch CSV validation of URL pairs, tracking pass rates, common issue types, and validation history for the migration team</li>
@@ -90,15 +95,13 @@
           <p class="entry-links"><a href="https://science.nasa.gov/" target="_blank" rel="noopener">science.nasa.gov</a></p>
         </div>
 
-      </div>
     </section>
 
-    <section class="row">
-      <h2 class="label">Projects</h2>
-      <div class="content">
+    <section class="block">
+      <h2 class="eyebrow">Projects</h2>
 
         <div class="entry" id="commish">
-          <p class="entry-head"><span>On-Chain Commish</span><span class="when">Oct. 2026 – Now</span></p>
+          <p class="entry-head"><span class="org">On-Chain Commish</span><span class="when">Oct. 2026 – Now</span></p>
           <ul class="bullets">
             <li>Developing a fantasy league treasury on Ethereum that escrows buy-ins and pays winners from ESPN standings posted on-chain by a daily bot, using Solidity, Foundry, React, wagmi, viem, RainbowKit, and Alchemy</li>
             <li>Implementing majority-vote disputes, failure-path refunds, and pull-pattern payouts so no one controls or locks funds; deployed to Sepolia and verified on Etherscan, with 142 unit, fuzz, and reentrancy tests (~98.7% coverage)</li>
@@ -107,7 +110,7 @@
         </div>
 
         <div class="entry" id="redis">
-          <p class="entry-head"><span>Python Redis from Scratch</span><span class="when">Oct. – Nov. 2025</span></p>
+          <p class="entry-head"><span class="org">Python Redis from Scratch</span><span class="when">Oct. – Nov. 2025</span></p>
           <ul class="bullets">
             <li>Engineered a master-replica synchronization protocol featuring a multi-step handshake (PING, REPLCONF, PSYNC) and real-time command propagation to keep replicas consistent</li>
             <li>Built a multi-threaded TCP server in Python using threading.Lock and Condition variables to manage shared state and enable blocking operations like BLPOP and XREAD BLOCK</li>
@@ -115,12 +118,11 @@
           <p class="entry-links"><a href="./?project=redis">Preview</a> <a href="https://github.com/rushilshah11/redis-from-scratch" target="_blank" rel="noopener">Code</a></p>
         </div>
 
-      </div>
     </section>
 
-    <section class="row">
-      <h2 class="label">Skills</h2>
-      <dl class="content skills">
+    <section class="block">
+      <h2 class="eyebrow">Skills</h2>
+      <dl class="skills">
         <dt>Languages</dt><dd>Python, TypeScript, JavaScript, Java, SQL, C++, Solidity</dd>
         <dt>Frameworks</dt><dd>React, Next.js, Redux, Express, FastAPI, Flask, Dash, Tailwind CSS, shadcn, wagmi, viem</dd>
         <dt>Data &amp; AI</dt><dd>PostgreSQL, Redis, Sybase, ChromaDB, XGBoost, LangChain, LLM APIs</dd>
@@ -129,6 +131,10 @@
     </section>
 
   </main>
+
+  <footer class="column footer">
+    <p class="fine">&copy; 2026 Rushil Shah</p>
+  </footer>
 </body>
 
 </html>

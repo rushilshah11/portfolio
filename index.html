@@ -26,88 +26,63 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preload" href="fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="index.css?v=4">
+  <link rel="stylesheet" href="index.css?v=5">
 </head>
 
 <body>
-  <main class="page">
+  <header class="topbar">
+    <a class="home" href="./" aria-current="page">Rushil Shah</a>
+    <nav>
+      <a href="resume.html">Resume</a>
+      <a href="mailto:rushil.shah113@gmail.com">Email</a>
+    </nav>
+  </header>
 
-    <div class="info-col">
+  <main class="column">
 
-      <section class="row">
-        <h1 class="label">Rushil Shah</h1>
-        <div class="content">
-          <p>
-            I'm a software engineer in New York. I'm building the digital assets platform
-            at Bank of America. I studied CS and Business at USC.
-          </p>
-          <p>
-            In the past, I've enjoyed working on risk monitoring for end-of-day batch
-            systems, a microservices app with gRPC and an API gateway, and marketing tech
-            for consumer brands. Lately I've been working on smart contracts and neat,
-            institutional frontend design for digital asset platforms.
-          </p>
-          <p>
-            Connect with me on <a href="https://github.com/rushilshah11" target="_blank" rel="noopener">GitHub</a>,
-            <a href="https://linkedin.com/in/rushilshahh" target="_blank" rel="noopener">LinkedIn</a>, or at
-            <a href="mailto:rushil.shah113@gmail.com">rushil.shah113@gmail.com</a>.
-          </p>
-          <p class="resume"><a href="resume.html">Resume</a></p>
-        </div>
-      </section>
+    <section class="intro">
+      <p>I'm a software engineer in New York, building the digital assets platform at Bank of America.</p>
+      <p>
+        Before that, I worked on risk monitoring for end-of-day batch systems, a microservices app
+        with gRPC and an API gateway, and marketing tech for consumer brands. Lately I've been
+        working on smart contracts and neat, institutional frontend design for digital asset platforms.
+      </p>
+      <p>
+        I studied CS and Business at USC. Outside of work, I'm a volunteer chef, a birdwatcher,
+        the commissioner of my family's fantasy basketball league, and a Lakers fan.
+      </p>
+    </section>
 
-      <section class="row">
-        <h2 class="label">Work</h2>
-        <ul class="content timeline">
-          <li><span class="when">Now</span><span><a href="resume.html#bofa">Bank of America</a>, swe II, digital assets</span></li>
-          <li><span class="when">2025</span><span><a href="resume.html#bofa-swe1">Bank of America</a>, swe I, market risk</span></li>
-          <li><span class="when">2024</span><span>Merrill Lynch, wealth management intern</span></li>
-          <li><span class="when">2024</span><span><a href="resume.html#tmg">Trojan Marketing Group</a>, director of technology</span></li>
-          <li><span class="when">2023</span><span><a href="resume.html#jpl">NASA JPL</a>, web development intern</span></li>
-        </ul>
-      </section>
+    <section class="block">
+      <h2 class="eyebrow">Experience</h2>
+      <ul class="entries">
+        <li>
+          <p class="org">Bank of America</p>
+          <p class="pos">Software Engineer II, Digital Assets</p>
+          <p class="pos">Software Engineer I, Market Risk</p>
+        </li>
+        <li>
+          <p class="org">Merrill Lynch</p>
+          <p class="pos">Wealth Management Intern</p>
+        </li>
+        <li>
+          <p class="org">Trojan Marketing Group</p>
+          <p class="pos">Director of Technology</p>
+        </li>
+        <li>
+          <p class="org">NASA Jet Propulsion Laboratory</p>
+          <p class="pos">Web Development Intern</p>
+        </li>
+      </ul>
+      <p class="more"><a href="resume.html">Full resume &rarr;</a></p>
+    </section>
 
-      <section class="row">
-        <h2 class="label">Projects</h2>
-        <div class="content projects-wrap">
-          <ul class="projects inline">
-            <li><button type="button" class="project is-active" data-project="commish">On-Chain Commish</button></li>
-            <li><button type="button" class="project" data-project="fantasy">Fantasy Basketball AI</button></li>
-            <li><button type="button" class="project" data-project="redis">Redis, in Python</button></li>
-            <li><button type="button" class="project" data-project="sunkist">Sunkist Dental</button></li>
-          </ul>
-          <div class="mobile-slot"></div>
-        </div>
-      </section>
-
-      <section class="row" id="campaigns">
-        <h2 class="label">Campaigns</h2>
-        <ul class="content inline">
-          <li><a href="https://www.trojanmarketinggroup.org/mailmodo" target="_blank" rel="noopener">Mailmodo</a></li>
-          <li><a href="https://www.trojanmarketinggroup.org/yate" target="_blank" rel="noopener">YATÉ</a></li>
-        </ul>
-      </section>
-
-      <section class="row">
-        <h2 class="label">Life</h2>
-        <ul class="content inline">
-          <li>Volunteer chef</li>
-          <li>Birdwatching</li>
-          <li>Family fantasy basketball commissioner</li>
-          <li>Lakers fan</li>
-        </ul>
-      </section>
-
-    </div>
-
-    <!-- Project carousel: the list on the left, the dots and arrows here all switch the same panel -->
-    <aside class="preview-col" aria-label="Project preview">
+    <section class="block" aria-label="Projects">
       <div class="carousel-head">
-        <p class="carousel-title" aria-live="polite">On-Chain Commish</p>
+        <h2 class="eyebrow">Projects</h2>
         <div class="carousel-nav">
           <div class="dots" role="tablist" aria-label="Choose a project">
             <button type="button" class="dot" role="tab" data-project="commish" aria-label="On-Chain Commish"></button>
-            <button type="button" class="dot" role="tab" data-project="fantasy" aria-label="Fantasy Basketball AI"></button>
             <button type="button" class="dot" role="tab" data-project="redis" aria-label="Redis, in Python"></button>
             <button type="button" class="dot" role="tab" data-project="sunkist" aria-label="Sunkist Dental"></button>
           </div>
@@ -116,57 +91,75 @@
         </div>
       </div>
 
-      <div class="preview" data-for="commish" data-title="On-Chain Commish">
-        <video src="on-chain-commish.mp4" poster="on-chain-commish-poster.jpg" muted loop playsinline
-          preload="metadata"></video>
-        <p class="desc">Fantasy league buy-ins held in a smart contract, paid out by final ESPN standings.</p>
-        <p class="links">
-          <a href="https://onchaincommissioner.vercel.app/" target="_blank" rel="noopener">App</a>
-          <a href="https://github.com/rushilshah11/league-treasury" target="_blank" rel="noopener">Code</a>
-          <a href="https://sepolia.etherscan.io/address/0xd39e4462F49009C15702638A7fAd34BC48Fa508F#code" target="_blank"
-            rel="noopener">Contract</a>
-        </p>
+      <div class="carousel" tabindex="0" aria-roledescription="carousel">
+        <div class="preview" data-for="commish">
+          <video src="on-chain-commish.mp4" poster="on-chain-commish-poster.jpg" muted loop playsinline
+            preload="metadata"></video>
+          <p class="org">On-Chain Commish</p>
+          <p class="pos">Fantasy league buy-ins held in a smart contract, paid out by final ESPN standings.</p>
+          <p class="links">
+            <a href="https://onchaincommissioner.vercel.app/" target="_blank" rel="noopener">App</a>
+            <a href="https://github.com/rushilshah11/league-treasury" target="_blank" rel="noopener">Code</a>
+            <a href="https://sepolia.etherscan.io/address/0xd39e4462F49009C15702638A7fAd34BC48Fa508F#code" target="_blank"
+              rel="noopener">Contract</a>
+          </p>
+        </div>
+        <div class="preview" data-for="redis" hidden>
+          <video src="Redis%20Preview.mp4" muted loop playsinline preload="metadata"></video>
+          <p class="org">Redis, in Python</p>
+          <p class="pos">A Redis server from scratch: the wire protocol, blocking commands, replication.</p>
+          <p class="links">
+            <a href="https://github.com/rushilshah11/redis-from-scratch" target="_blank" rel="noopener">Code</a>
+            <a href="https://youtu.be/LGukNAYP9YY" target="_blank" rel="noopener">Full demo</a>
+          </p>
+        </div>
+        <div class="preview" data-for="sunkist" hidden>
+          <img src="sunkistdental.png" alt="Sunkist Dental homepage" loading="lazy">
+          <p class="org">Sunkist Dental</p>
+          <p class="pos">The website for a local dental practice.</p>
+          <p class="links">
+            <a href="https://sunkistdental.com" target="_blank" rel="noopener">App</a>
+            <a href="https://github.com/rushilshah11/sunkist-dental" target="_blank" rel="noopener">Code</a>
+          </p>
+        </div>
       </div>
-      <div class="preview" data-for="fantasy" data-title="Fantasy Basketball AI" hidden>
-        <div class="media-empty">Video soon</div>
-        <p class="desc">Next-game predictions and an add/drop chatbot for my family's league. In progress.</p>
-        <p class="links">
-          <a href="https://basketball-microservices-project.vercel.app/" target="_blank" rel="noopener">App</a>
-          <a href="https://github.com/rushilshah11/basketball-microservices-project" target="_blank"
-            rel="noopener">Code</a>
-        </p>
-      </div>
-      <div class="preview" data-for="redis" data-title="Redis, in Python" hidden>
-        <video src="Redis%20Preview.mp4" muted loop playsinline preload="metadata"></video>
-        <p class="desc">A Redis server from scratch: the wire protocol, blocking commands, replication.</p>
-        <p class="links">
-          <a href="https://github.com/rushilshah11/redis-from-scratch" target="_blank" rel="noopener">Code</a>
-          <a href="https://youtu.be/LGukNAYP9YY" target="_blank" rel="noopener">Full demo</a>
-        </p>
-      </div>
-      <div class="preview" data-for="sunkist" data-title="Sunkist Dental" hidden>
-        <img src="sunkistdental.png" alt="Sunkist Dental homepage" loading="lazy">
-        <p class="desc">The website for a local dental practice.</p>
-        <p class="links">
-          <a href="https://sunkistdental.com" target="_blank" rel="noopener">App</a>
-          <a href="https://github.com/rushilshah11/sunkist-dental" target="_blank" rel="noopener">Code</a>
-        </p>
-      </div>
-    </aside>
+    </section>
+
+    <section class="block" id="campaigns">
+      <h2 class="eyebrow">Campaigns</h2>
+      <ul class="entries">
+        <li>
+          <p class="org"><a href="https://www.trojanmarketinggroup.org/mailmodo" target="_blank" rel="noopener">Mailmodo</a></p>
+          <p class="pos">Trojan Marketing Group</p>
+        </li>
+        <li>
+          <p class="org"><a href="https://www.trojanmarketinggroup.org/yate" target="_blank" rel="noopener">YATÉ</a></p>
+          <p class="pos">Trojan Marketing Group</p>
+        </li>
+      </ul>
+    </section>
 
   </main>
 
+  <footer class="column footer">
+    <h2 class="eyebrow">Say hello</h2>
+    <p>
+      <a href="mailto:rushil.shah113@gmail.com">rushil.shah113@gmail.com</a><br>
+      <a href="https://github.com/rushilshah11" target="_blank" rel="noopener">GitHub</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://linkedin.com/in/rushilshahh" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+    <p class="fine">&copy; 2026 Rushil Shah</p>
+  </footer>
+
   <script>
-    const projects = document.querySelectorAll('.project');
     const dots = document.querySelectorAll('.dot');
     const previews = [...document.querySelectorAll('.preview')];
-    const title = document.querySelector('.carousel-title');
     const order = previews.map(pv => pv.dataset.for);
     let current = order[0];
 
     function show(name) {
       current = name;
-      projects.forEach(p => p.classList.toggle('is-active', p.dataset.project === name));
       dots.forEach(d => {
         const on = d.dataset.project === name;
         d.classList.toggle('is-active', on);
@@ -175,7 +168,6 @@
       previews.forEach(pv => {
         const on = pv.dataset.for === name;
         pv.hidden = !on;
-        if (on) title.textContent = pv.dataset.title;
         const v = pv.querySelector('video');
         if (v) { on ? v.play().catch(() => { }) : v.pause(); }
       });
@@ -186,49 +178,32 @@
       show(order[(i + by + order.length) % order.length]);
     }
 
-    projects.forEach(p => {
-      const go = () => show(p.dataset.project);
-      // Hover previews only on devices that can hover, so taps on phones don't double-fire
-      if (window.matchMedia('(hover: hover)').matches) p.addEventListener('mouseenter', go);
-      p.addEventListener('click', go);
-    });
     dots.forEach(d => d.addEventListener('click', () => show(d.dataset.project)));
     document.querySelector('.arrow.prev').addEventListener('click', () => step(-1));
     document.querySelector('.arrow.next').addEventListener('click', () => step(1));
 
-    // Arrow keys move through projects while focus is in the carousel
-    document.querySelector('.preview-col').addEventListener('keydown', e => {
+    // Arrow keys while the carousel has focus
+    const carousel = document.querySelector('.carousel');
+    carousel.addEventListener('keydown', e => {
       if (e.key === 'ArrowRight') step(1);
       if (e.key === 'ArrowLeft') step(-1);
     });
 
-    // Swipe on the media to change projects on touch screens
+    // Swipe on touch screens
     let startX = null;
-    document.querySelector('.preview-col').addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-    document.querySelector('.preview-col').addEventListener('touchend', e => {
+    carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    carousel.addEventListener('touchend', e => {
       if (startX === null) return;
       const dx = e.changedTouches[0].clientX - startX;
       if (Math.abs(dx) > 50) step(dx < 0 ? 1 : -1);
       startX = null;
     });
 
-    // On small screens, move the preview panel right under the project list
-    const panel = document.querySelector('.preview-col');
-    const page = document.querySelector('.page');
-    const slot = document.querySelector('.mobile-slot');
-    const small = window.matchMedia('(max-width: 1100px)');
-    function place() {
-      if (small.matches) slot.appendChild(panel);
-      else page.appendChild(panel);
-    }
-    small.addEventListener('change', place);
-    place();
-
-    // resume.html links here with ?project=<name> to open a specific preview
+    // resume.html links here with ?project=<name> to open a specific project
     const asked = new URLSearchParams(location.search).get('project');
     if (order.includes(asked)) {
       current = asked;
-      if (small.matches) panel.scrollIntoView({ block: 'center' });
+      carousel.scrollIntoView({ block: 'center' });
     }
     show(current);
   </script>

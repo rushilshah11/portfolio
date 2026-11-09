@@ -1,4 +1,4 @@
-/* Layout pass: one screen on desktop, no scroll. Typography and color come in the design pass. */
+/* One centered reading column. Newsreader serif + forest green links. */
 
 /* Newsreader (SIL Open Font License), self-hosted variable font */
 @font-face {
@@ -9,25 +9,29 @@
   font-display: swap;
 }
 
+:root {
+  --ink: #111;
+  --muted: #6f6f6f;
+  --faint: #9a9a9a;
+  --rule: #e6e6e6;
+  --green: #1c3f27;
+  --column: 620px;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
-}
-
 body {
   margin: 0;
   background: #fff;
-  color: #111;
+  color: var(--ink);
   font-family: "Newsreader", Georgia, serif;
   font-optical-sizing: auto;
-  font-size: 17px;
-  line-height: 1.45;
+  font-size: 18px;
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -46,171 +50,127 @@ ul {
   list-style: none;
 }
 
-/* Links: dark forest green with a plain underline */
+/* Links: forest green with a plain underline */
 a {
-  color: #1c3f27;
+  color: var(--green);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
 }
 
-a:hover {
-  color: #1c3f27;
-}
-
 /* Links that leave the site get a small arrow; links within the site don't */
 a[target="_blank"]::after {
   content: "\2197";
   display: inline-block; /* keeps the arrow out of the underline */
   margin-left: 2px;
   font-size: 0.7em;
-  color: #999;
+  color: var(--faint);
   transform: translateY(-0.35em);
 }
 
 a[target="_blank"]:hover::after {
-  color: #1c3f27;
+  color: var(--green);
 }
 
 :focus-visible {
-  outline: 2px solid #1c3f27;
+  outline: 2px solid var(--green);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-/* Muted lines (Resume) stay gray until hovered */
-.muted a {
-  color: inherit;
+/* ---------- Top bar ---------- */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: calc(var(--column) + 48px);
+  margin: 0 auto;
+  padding: 32px 24px 0;
 }
 
-.muted a:hover {
-  color: #1c3f27;
+.topbar a {
+  text-decoration: none;
+  color: var(--ink);
 }
 
-/* Links that leave the site get a small arrow; links within the site don't */
-a[target="_blank"]::after {
-  content: "\2197";
-  display: inline-block; /* keeps the arrow out of the underline */
-  margin-left: 2px;
-  font-size: 0.7em;
-  color: #999;
-  transform: translateY(-0.35em);
-}
-
-a[target="_blank"]:hover::after {
-  color: #1c3f27;
-}
-
-:focus-visible {
-  outline: 2px solid #1c3f27;
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-/* Page: text on the left, project preview on the right */
-.page {
-  display: grid;
-  grid-template-columns: minmax(0, 760px) minmax(360px, 560px);
-  gap: 64px;
-  max-width: 1600px;
-  margin-inline: 0;
-  min-height: 100vh;
-  padding: 80px 72px;
-  align-items: start;
-}
-
-/* Two-column rows: label on the left, content on the right */
-.row {
-  display: grid;
-  grid-template-columns: 120px 1fr;
-  gap: 24px;
-}
-
-.row + .row {
-  margin-top: 24px;
-}
-
-.label {
+.topbar .home {
   font-weight: 600;
 }
 
-.mobile-slot:empty {
-  display: none;
-}
-
-.content p + p {
-  margin-top: 8px;
-}
-
-.content .muted {
-  color: #777;
-}
-
-.content .resume {
-  margin-top: 8px;
-}
-
-.timeline li {
-  display: grid;
-  grid-template-columns: 52px 1fr;
-}
-
-.when {
-  color: #777;
-}
-
-/* Inline lists separated by a middle dot */
-.inline {
+.topbar nav {
   display: flex;
-  flex-wrap: wrap;
+  gap: 24px;
 }
 
-.inline li {
-  white-space: nowrap;
+.topbar nav a {
+  color: var(--muted);
 }
 
-.inline li:not(:last-child)::after {
-  content: "·";
-  display: inline-block; /* keeps the dot out of the underline */
-  padding: 0 8px;
-  color: #999;
+.topbar a:hover,
+.topbar nav a[aria-current="page"] {
+  color: var(--green);
 }
 
-/* Projects: buttons that switch the preview, styled apart from links.
-   Dotted underline = stays on the page; solid underline = goes somewhere. */
-.project {
-  padding: 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  cursor: pointer;
-  color: #777;
-  text-decoration: underline dotted;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
+/* ---------- Column ---------- */
+.column {
+  max-width: calc(var(--column) + 48px);
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-.project:hover {
-  color: #1c3f27;
+main.column {
+  padding-top: 96px;
 }
 
-.project.is-active {
-  color: #1c3f27;
-  text-decoration-style: solid;
+.intro p {
+  color: #3a3a3a;
 }
 
-/* Carousel header: project name, dots and arrows above the media */
+.intro p + p {
+  margin-top: 22px;
+}
+
+.block {
+  margin-top: 96px;
+}
+
+/* Small uppercase section label */
+.eyebrow {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+/* Company on top, position underneath */
+.entries {
+  margin-top: 36px;
+}
+
+.entries li + li {
+  margin-top: 32px;
+}
+
+.org {
+  font-weight: 500;
+}
+
+.pos {
+  color: var(--muted);
+}
+
+.more {
+  margin-top: 36px;
+  font-size: 16px;
+}
+
+/* ---------- Project carousel ---------- */
 .carousel-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  max-width: 640px;
-  margin-bottom: 12px;
-}
-
-.carousel-title {
-  font-weight: 600;
 }
 
 .carousel-nav {
@@ -244,19 +204,19 @@ a[target="_blank"]:hover::after {
 }
 
 .dot:hover::before {
-  background: #999;
+  background: var(--faint);
 }
 
 .dot.is-active::before {
   width: 20px;
-  background: #1c3f27;
+  background: var(--green);
 }
 
 .arrow {
   width: 32px;
   height: 32px;
   padding: 0;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--rule);
   border-radius: 999px;
   background: #fff;
   color: #555;
@@ -267,26 +227,29 @@ a[target="_blank"]:hover::after {
 }
 
 .arrow:hover {
-  border-color: #1c3f27;
-  color: #1c3f27;
+  border-color: var(--green);
+  color: var(--green);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .dot::before {
-    transition: none;
-  }
+.carousel {
+  margin-top: 20px;
+  outline: none;
 }
 
-/* Preview panel */
+.carousel:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 6px;
+}
+
 .preview video,
 .preview img,
 .media-empty {
   display: block;
   width: 100%;
-  max-width: 640px;
   aspect-ratio: 16 / 9;
   background: #f2f2f2;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
 }
 
 .preview img {
@@ -297,147 +260,147 @@ a[target="_blank"]:hover::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #999;
+  color: var(--faint);
   font-size: 15px;
 }
 
-.desc {
-  margin-top: 14px;
-  max-width: 640px;
+.preview .org {
+  margin-top: 18px;
 }
 
 .links {
-  margin-top: 8px;
   display: flex;
   flex-wrap: wrap;
   gap: 4px 20px;
-  font-size: 15px;
-  color: #555;
+  margin-top: 8px;
+  font-size: 16px;
 }
 
-/* Narrower screens: stack everything and let the page scroll */
-@media (max-width: 1100px) {
-  html,
-  body {
-    height: auto;
-  }
-
-  .page {
-    grid-template-columns: minmax(0, 760px);
-    min-height: 0;
-    gap: 32px;
-    padding: 56px 40px 72px;
-  }
-
-  .mobile-slot {
-    margin-top: 20px;
-  }
+/* ---------- Footer ---------- */
+.footer {
+  margin-top: 120px;
+  padding-bottom: 72px;
 }
 
-/* Phones */
-@media (max-width: 600px) {
-  .page {
-    padding: 40px 20px 64px;
-  }
+.footer p {
+  margin-top: 16px;
+}
 
-  .row {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-
-  .row + .row {
-    margin-top: 28px;
-  }
+.footer .fine {
+  margin-top: 48px;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
 }
 
 /* ---------- Resume page ---------- */
-.resume-page {
-  display: block;
-  max-width: 900px;
-}
-
-.resume-nav {
+.resume-actions {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 40px;
+  align-items: baseline;
+  font-size: 16px;
 }
 
-.resume-page .row + .row {
+.resume .block:first-of-type {
+  margin-top: 64px;
+}
+
+.resume .block {
+  margin-top: 72px;
+}
+
+.entry {
   margin-top: 36px;
 }
 
-.entry + .entry {
-  margin-top: 22px;
-}
-
-/* Jumping here from a Work link briefly highlights the entry */
+/* Arriving from a link to a section briefly highlights the entry */
 .entry:target {
   animation: arrive 1.6s ease-out;
   scroll-margin-top: 32px;
 }
 
 @keyframes arrive {
-  from { background: #e8efe9; box-shadow: 0 0 0 10px #e8efe9; }
-  to   { background: transparent; box-shadow: 0 0 0 10px transparent; }
+  from { background: #e8efe9; box-shadow: 0 0 0 12px #e8efe9; }
+  to   { background: transparent; box-shadow: 0 0 0 12px transparent; }
 }
 
 .entry-head {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   gap: 16px;
-  font-weight: 600;
 }
 
 .entry-head .when {
-  font-weight: 400;
+  color: var(--faint);
+  font-size: 15px;
   white-space: nowrap;
 }
 
-.role {
-  color: #555;
-  font-weight: 400;
+.role + .role,
+.entry-head + .role {
+  margin-top: 0;
 }
 
 .bullets {
-  margin-top: 6px;
+  margin-top: 10px;
   font-size: 16px;
+  line-height: 1.5;
   list-style: disc;
   padding-left: 18px;
 }
 
 .bullets li + li {
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
 .bullets li::marker {
-  color: #999;
+  color: var(--faint);
 }
 
 .entry-links {
   display: flex;
   flex-wrap: wrap;
   gap: 4px 20px;
-  margin-top: 6px;
+  margin-top: 10px;
   font-size: 15px;
-  color: #555;
 }
 
 .skills {
   display: grid;
   grid-template-columns: 110px 1fr;
-  gap: 4px 16px;
-  margin: 0;
+  gap: 8px 16px;
+  margin: 36px 0 0;
+  font-size: 16px;
 }
 
 .skills dt {
-  color: #777;
+  color: var(--muted);
 }
 
 .skills dd {
   margin: 0;
 }
 
+/* ---------- Phones ---------- */
 @media (max-width: 600px) {
+  body {
+    font-size: 17px;
+  }
+
+  .topbar {
+    padding-top: 24px;
+  }
+
+  main.column {
+    padding-top: 64px;
+  }
+
+  .block {
+    margin-top: 72px;
+  }
+
   .entry-head {
     flex-direction: column;
     gap: 0;
@@ -445,14 +408,19 @@ a[target="_blank"]:hover::after {
 
   .skills {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 
   .skills dd + dt {
-    margin-top: 8px;
+    margin-top: 10px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .dot::before {
+    transition: none;
+  }
+
   .entry:target {
     animation: none;
   }
