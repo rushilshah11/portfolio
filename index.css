@@ -72,6 +72,13 @@ a[target="_blank"]:hover::after {
   color: var(--green);
 }
 
+/* Phones and tablets draw the arrow as an emoji, so drop it there */
+@media (hover: none) and (pointer: coarse) {
+  a[target="_blank"]::after {
+    content: none;
+  }
+}
+
 :focus-visible {
   outline: 2px solid var(--green);
   outline-offset: 3px;
