@@ -24,12 +24,12 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preload" href="fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="index.css?v=6">
+  <link rel="stylesheet" href="index.css?v=7">
 </head>
 
 <body>
   <header class="topbar">
-    <a class="home" href="./">Rushil Shah</a>
+    <a class="home" href="./" aria-label="Rushil Shah, home"><img src="favicon-192.png" alt="RS" width="32" height="32"></a>
     <nav>
       <a href="./">About</a>
       <a href="resume.html" aria-current="page">Resume</a>
@@ -127,27 +127,17 @@
       <div class="entry" id="commish">
         <p class="entry-head"><span class="org">On-Chain Commish</span><span class="when">Oct. 2026 – Now</span></p>
         <ul class="bullets">
-          <li>Develop a fantasy league treasury on Ethereum that escrows buy-ins and pays winners from ESPN standings
-            posted on-chain by a daily bot, using Solidity, Foundry, React, wagmi, viem, RainbowKit, and Alchemy</li>
-          <li>Implement majority-vote disputes, failure-path refunds, and pull-pattern payouts so no one controls or
-            locks funds; deployed to Sepolia and verified on Etherscan, with 142 unit, fuzz, and reentrancy tests
-            (~98.7% coverage)</li>
+          <li>Engineer a fantasy league treasury on Base that escrows USDC buy-ins and pays every team out by ESPN's
+            final standings, with a React/wagmi frontend and a daily GitHub Actions bot that posts results on-chain</li>
+          <li>Define the league rules from scratch and encode them as a 6-state contract, with a 48-hour dispute
+            window, member majority vote, and full refunds in 3 failure cases</li>
+          <li>Integrate a Chainlink CRE workflow and receiver contract so oracle nodes must agree on ESPN standings
+            instead of trusting the bot's single signing key, validated in Chainlink's simulator</li>
+          <li>Test with 160+ unit, fuzz, and stateful invariant tests checking the contract always holds exactly the
+            USDC it owes, with Slither and gas snapshots in CI; deployed and verified on BaseScan</li>
         </ul>
         <p class="entry-links"><a href="./?project=commish">Preview</a> <a
             href="https://github.com/rushilshah11/league-treasury" target="_blank" rel="noopener">Code</a></p>
-      </div>
-
-      <div class="entry" id="redis">
-        <p class="entry-head"><span class="org">Python Redis from Scratch</span><span class="when">Oct. – Nov.
-            2025</span></p>
-        <ul class="bullets">
-          <li>Engineered a master-replica synchronization protocol featuring a multi-step handshake (PING, REPLCONF,
-            PSYNC) and real-time command propagation to keep replicas consistent</li>
-          <li>Built a multi-threaded TCP server in Python using threading.Lock and Condition variables to manage shared
-            state and enable blocking operations like BLPOP and XREAD BLOCK</li>
-        </ul>
-        <p class="entry-links"><a href="./?project=redis">Preview</a> <a
-            href="https://github.com/rushilshah11/redis-from-scratch" target="_blank" rel="noopener">Code</a></p>
       </div>
 
     </section>
@@ -159,10 +149,10 @@
         <dd>Python, TypeScript, JavaScript, Java, SQL, C++, Solidity</dd>
         <dt>Frameworks</dt>
         <dd>React, Next.js, Redux, Express, FastAPI, Flask, Dash, Tailwind CSS, shadcn, wagmi, viem</dd>
-        <dt>Data &amp; AI</dt>
+        <dt>Databases &amp; AI</dt>
         <dd>PostgreSQL, Redis, Sybase, ChromaDB, XGBoost, LangChain, LLM APIs</dd>
         <dt>Tools</dt>
-        <dd>Docker, Jenkins, OpenShift, AWS, Git, Foundry, GitHub Actions, Playwright, k6, Pytest</dd>
+        <dd>Docker, Jenkins, OpenShift, AWS, Git, Foundry, Chainlink, GitHub Actions, Playwright, k6, Pytest</dd>
       </dl>
     </section>
 

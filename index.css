@@ -82,7 +82,7 @@ a[target="_blank"]:hover::after {
 .topbar {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   max-width: calc(var(--column) + 48px);
   margin: 0 auto;
   padding: 32px 24px 0;
@@ -94,7 +94,15 @@ a[target="_blank"]:hover::after {
 }
 
 .topbar .home {
-  font-weight: 600;
+  display: block;
+  line-height: 0;
+}
+
+.topbar .home img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
 }
 
 .topbar nav {
