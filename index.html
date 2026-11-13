@@ -34,8 +34,8 @@
     <a class="home" href="./" aria-label="Rushil Shah, home"><img src="favicon-192.png" alt="RS" width="32" height="32"></a>
     <nav>
       <a href="./" aria-current="page">About</a>
-      <a href="resume.html">Resume</a>
-      <a href="connect.html">Connect</a>
+      <a href="resume">Resume</a>
+      <a href="connect">Connect</a>
     </nav>
   </header>
 
@@ -80,7 +80,7 @@
           <p class="pos">Web Development Instructor</p>
         </li>
       </ul>
-      <p class="more"><a href="resume.html">Full resume &rarr;</a></p>
+      <p class="more"><a href="resume">Full resume &rarr;</a></p>
     </section>
 
     <section class="block" aria-label="Projects">
@@ -198,7 +198,7 @@
       startX = null;
     });
 
-    // resume.html links here with ?project=<name> to open a specific project
+    // The resume page links here with ?project=<name> to open a specific project
     const asked = new URLSearchParams(location.search).get('project');
     if (order.includes(asked)) {
       current = asked;
